@@ -4,7 +4,7 @@
 
 ## GİRİŞ
 
-Enfeksiyon hastalıkları, yaşlı bireylerde morbidite ve mortalitenin en önemli nedenlerinden biridir. 65 yaş üstü popülasyonda solunum yolu enfeksiyonları, idrar yolu enfeksiyonları (İYE), deri-yumuşak doku enfeksiyonları, sepsis ve *Clostridioides difficile* enfeksiyonu sık görülür; hastane yatışları, fonksiyonel gerileme, deliryum ve uzun dönem bakım kuruluşu (UDBK) yerleşimi ile ilişkilidir. Genç yetişkinlerde geçerli olan “ateş + lokalizasyon bulgusu = enfeksiyon” modeli yaşlı hastada çoğu zaman yetersiz kalır. Bu bölümde, diğer kitap bölümlerinde olduğu gube (hiperlipidemi, tiroid hastalıkları vb.), **neden–niçin** mantığı ve **algoritmik yaklaşım** üzerinden yaşlılarda enfeksiyon yönetiminin genel çerçevesi sunulmaktadır.
+Enfeksiyon hastalıkları, yaşlı bireylerde morbidite ve mortalitenin en önemli nedenlerinden biridir. 65 yaş üstü popülasyonda solunum yolu enfeksiyonları, idrar yolu enfeksiyonları (İYE), deri-yumuşak doku enfeksiyonları, sepsis ve *Clostridioides difficile* enfeksiyonu sık görülür; hastane yatışları, fonksiyonel gerileme, deliryum ve uzun dönem bakım kuruluşu (UDBK) yerleşimi ile ilişkilidir. Genç yetişkinlerde geçerli olan “ateş + lokalizasyon bulgusu = enfeksiyon” modeli yaşlı hastada çoğu zaman yetersiz kalır. Bu bölümde, diğer kitap bölümlerinde olduğu gibi (hiperlipidemi, tiroid hastalıkları vb.), **neden–niçin** mantığı ve **algoritmik yaklaşım** üzerinden yaşlılarda enfeksiyon yönetiminin genel çerçevesi sunulmaktadır.
 
 **Temel mesaj:** Yaşlıda enfeksiyon yönetimi, tek bir organ odaklı değil; bütüncül geriatrik değerlendirme, komorbidite etkileşimi, kırılganlık (frailty) düzeyi ve tedavi hedeflerinin bireyselleştirilmesi üzerine kurulmalıdır.
 
@@ -163,65 +163,421 @@ Enfeksiyon her “akut gerileme”nin nedeni değildir. Metabolik bozukluk (hipo
 
 ## TEDAVİ YAKLAŞIMI: ALGORİTMİK VE BİREYSELLEŞTİRİLMİŞ YÖNETİM
 
-Tedavi kararı üç eksende verilir: **(1) Enfeksiyon ciddiyeti, (2) Hasta kırılganlığı/komorbidite, (3) Hasta hedefleri ve bakım planı.**
+Tedavi kararı dört eksende verilir: **(1) Enfeksiyon ciddiyeti ve odak, (2) Hasta kırılganlığı, (3) Komorbid hastalıklar ve polifarmasi, (4) Hasta hedefleri / bakım planı (ACP).**
 
-### Algoritma: Antibiyotik başlama kararı
+Yaşlıda empirik tedavi, “standart rehber dozu” ile başlamaz; **önce komorbidite filtresi uygulanır**, ardından enfeksiyon odak algoritmasına geçilir.
+
+---
+
+### AŞAMA 0: TEDAVİ ÖNCESİ ZORUNLU TARAMA (Her Hasta İçin)
+
+Antibiyotik yazılmadan önce aşağıdaki tablo doldurulmalıdır. Bu adım atlanırsa doz hatası, sıvı yükü, QT uzaması ve kanama gibi önlenebilir komplikasyonlar artar.
+
+**Tablo 2.** Tedavi öncesi komorbidite ve ilaç tarama kontrol listesi
+
+| Alan | Sorulacak / bakılacak | Tedaviyi nasıl değiştirir? |
+|---|---|---|
+| Böbrek fonksiyonu | eGFR, idrar çıkışı, diyaliz | Doz ayarı; nefrotoksik ilaçlardan kaçın |
+| Kalp yetmezliği | EF, volüm durumu, son BNP | Sıvı stratejisi; kardiyotoksik ilaçlardan kaçın |
+| KOAH / astım | O₂ ihtiyacı, steroid kullanımı | Solunum desteği; makrolid etkileşimi |
+| Diyabet | Son HbA1c, oral antidiyabetikler | Glisemi izlemi; SGLT2i ile euglise riski |
+| Karaciğer hastalığı | Child-Pugh, transaminaz | Doz azaltımı; hepatotoksik ilaçlardan kaçın |
+| Antikoagülan / antiplatelet | Varfarin, DOAC, aspirin | TMP-SMX, makrolid, metronidazol etkileşimi |
+| QT uzaması riski | EKG, diüretik, antiaritmik | Makrolid, kinolon, azol dikkat |
+| *C. difficile* öyküsü | Son 3–6 ay kolit | “4C” antibiyotiklerden kaçın |
+| Demans / deliryum | 4AT skoru, sedatif kullanımı | Deliryum önleyici bakım; gereksiz sedasyon |
+| İmmünosupresyon | Steroid, biyolojik, kemoterapi | Genişletilmiş empirisi; antifungal/profilaksi |
+| Prostat hipertrofisi | İdrar retansiyonu | İdrar boşaltımı; antikolinergik ilaçlardan kaçın |
+| Epilepsi | Antiepileptik ilaçlar | Meropenem, kinolon, makrolid etkileşimi |
+| Polifarmasi | ≥5 ilaç listesi | Etkileşim taraması (BNF/e-reçete) |
+
+---
+
+### AŞAMA 1: ANTİBİYOTİK BAŞLAMA KARARI
 
 ```
 Enfeksiyon olasılığı değerlendirildi
         │
-        ├─ Enfeksiyon düşük olasılık
-        │       → İzlem, non-antibiyotik nedenleri tedavi et
+        ├─ DÜŞÜK olasılık
+        │       → Antibiyotik BAŞLAMA
+        │       → Alternatif nedenleri tedavi et (retansiyon, ilaç, metabolik)
         │       → 24–48 saatte yeniden değerlendir
         │
-        ├─ Enfeksiyon orta olasılık + stabil
-        │       → Hedefe yönelik örnek al
-        │       → Dar spektrum empirik tedavi (yerel rehber)
-        │       → 48–72 saatte klinik yanıt değerlendir
+        ├─ ORTA olasılık + hemodinamik STABİL
+        │       → Aşama 0 tamamla
+        │       → Hedefe yönelik kültür al
+        │       → Aşama 2 (odak algoritması) + Aşama 3 (komorbidite düzeltmesi)
+        │       → 48–72 saatte klinik yanıt / de-eskale
         │
-        └─ Enfeksiyon yüksek olasılık / sepsis / septik şok
-                → Acil örnekler + kaynak kontrolü
-                → Geniş spektrum empirik tedavi (hızlı!)
-                → De-eskale/de-escalation (48–72 saat)
+        └─ YÜKSEK olasılık / SEPSİS / SEPTİK ŞOK
+                → Acil stabilizasyon (Aşama 5: sepsis + komorbidite)
+                → Kan kültürü + odak örnekleri
+                → 1 saat içinde (şok) / en kısa sürede empirik geniş spektrum
+                → 48–72 saatte mutlaka de-eskale
 ```
 
-**Niçin bireyselleştirme?** Kırılgan yaşlıda “tedavi etmeme” deliryum/sepsis riski taşır; “gereksiz tedavi” ise *C. difficile*, advers ilaç olayları, direnç ve polifarmasi yükünü artırır.
+**Niçin bireyselleştirme?** Kırılgan yaşlıda “tedavi etmeme” deliryum/sepsis riski taşır; “standart reçete” ise *C. difficile*, AKI, aritmi ve kanama riskini artırır.
 
-### Empirik antibiyotik seçimi: genel ilkeler
+---
 
-1. **Yerel epidemiyoloji ve direnç paternine** uyum (hastane/UDBK antibiyogramı).
-2. **Dar spektrum, kısa süre** prensibi: Çoğu komplike olmayan enfeksiyonda 5–7 gün yeterli olabilir; kaynak kontrolü yapılmış absede daha kısa süreler düşünülebilir.
-3. **Böbrek/karaciğer fonksiyonuna göre doz ayarı:** KBH’de nefrotoksik ajanlardan kaçınma veya doz düzeltme.
-4. **“4C” grubu ve yüksek riskli ajanlardan kaçınma** (mümkün olduğunca): Co-amoksislav, ciprofloksasin/kinolonlar, 3. kuşak sefalosporinler, klindamisin → *C. difficile* riski.
-5. **Polifarmasi etkileşimlerini kontrol:** Klarytromisin-statin, metronidazol-varfarin, TMP-SMX-antikoagülan vb.
-6. **De-eskalasyon:** Kültür sonuçları ve klinik yanıtla spektrumu daralt.
+### AŞAMA 2: ENFEKSİYON ODAĞINA GÖRE EMPIRİK SEÇİM (Komorbidite Düzeltmesi Öncesi Taslak)
 
-### Komorbid hastalığa göre yönetim noktaları
+Bu aşamada **genel rehber seçimi** yapılır; bir sonraki aşamada komorbiditeye göre değiştirilir.
 
-| Komorbidite | Enfeksiyon yönetiminde niçin önemli? | Pratik yaklaşım |
+```
+Enfeksiyon odağı belirlendi
+        │
+        ├─ ÜST solunum yolu (viral olasılık yüksek, stabil)
+        │       → Semptomatik tedavi; antibiyotik genellikle GEREKMEZ
+        │       → İstisna: bakteriyel süperenfeksiyon, KOAH alevlenmesi
+        │
+        ├─ ALT solunum yolu / pnömoni
+        │       → Toplum kökenli: amoksisilin veya respiratuvar kinolon*
+        │       → Hastane/UDBK kökenli veya riskli: anti-pseudomonal β-laktam ± vankomisin
+        │       → *Kinolon: KY/KBH/QT varsa Aşama 3’te değiştir
+        │
+        ├─ İYE (semptomatik, komplike değil)
+        │       → TMP-SMX veya nitrofurantoin (eGFR uygunsa) veya fosfomisin (tek doz)
+        │       → eGFR <30: nitrofurantoin KULLANMA; alternatif değerlendir
+        │
+        ├─ Komplike İYE / piyelonefrit
+        │       → Sefalosporin veya piperasilin-tazobaktam (ciddiyete göre)
+        │       → *Sefalosporin: CDI öyküsü varsa Aşama 3’te değiştir
+        │
+        ├─ Deri-yumuşak doku (selülit, komplike değil)
+        │       → Sefazolin IV veya dikloksasilin / klindamisin (penisilin alerjisi)
+        │       → MRSA riski: TMP-SMX, doksisiklin veya vankomisin
+        │
+        ├─ İntra-abdominal / divertikülit
+        │       → Metronidazol + sefalosporin veya piperasilin-tazobaktam
+        │       → *Metronidazol: antikoagülan etkileşimi → Aşama 3
+        │
+        └─ Sepsis (odak belirsiz / çoklu)
+                → Meropenem veya piperasilin-tazobaktam + vankomisin (MRSA riski)
+                → Kaynak kontrolü planla (kateter, apse, debridman)
+```
+
+**Genel ilkeler (tüm odaklar için):** Yerel antibiyograma uyum; dar spektrum ve kısa süre (5–7 gün); 48–72 saatte de-eskale; polifarmasi etkileşim kontrolü.
+
+---
+
+### AŞAMA 3: KOMORBİDİTE FİLTRESİ — “STANDART REÇETEYİ DEĞİŞTİR”
+
+Empirik seçim yapıldıktan sonra **her komorbidite için aşağıdaki dallanma uygulanır.** Birden fazla komorbidite varsa en kısıtlayıcı kural önceliklidir.
+
+#### 3A. Böbrek yetmezliği / KBH (eGFR düşük veya diyaliz)
+
+```
+KBH var mı?
+    │
+    ├─ eGFR 30–59 (hafif-orta)
+    │       → Doz azalt: vankomisin, acyclovir, β-laktam (CrCl’ye göre)
+    │       → Nitrofurantoin: genellikle KAÇIN (pulmoner fibrozis riski)
+    │       → Aminoglikozid: KAÇIN; zorunluysa tek doz + düzey izlemi
+    │       → TMP-SMX: trimetoprim kısmını doz ayarla; hiperkalemi riski → K izle
+    │
+    ├─ eGFR <30 (ağır) / diyaliz
+    │       → Nitrofurantoin: KULLANMA
+    │       → TMP-SMX: genellikle KAÇIN (hiperkalemi, kemik iliği baskılanması)
+    │       → Kinolon: doz ayarla; yine de QT/KY birlikteliğinde tercih etme
+    │       → Vankomisin: diyaliz sonrası doz; düzey takibi
+    │       → Sepsis sıvı tedavisi: aşırı sıvıdan kaçın (KY varsa çifte dikkat)
+    │       → Tercih: ceftriaxone (doz ayarlı), amoksisilin-klavulanat (dikkatli),
+    │                  meropenem (ağır enfeksiyon), linezolid (alternatif)
+    │
+    └─ Geçici AKI (dehidratasyon, sepsis)
+            → Nefrotoksikleri DURDUR (NSAID, aminoglikozid, kontrast)
+            → Volüm resüsitasyonu sonrası dozu yeniden hesapla
+            → İdrar çıkışı ve kreatinin günlük izle
+```
+
+**Niçin?** Yaşlıda “normal doz” birikim yapar → nörotoksisite (kinolon), ototoksisite (aminoglikozid), AKI alevlenmesi (TMP-SMX, vankomisin).
+
+#### 3B. Kalp yetmezliği (EF düşük, volüm yükü, aritmi öyküsü)
+
+```
+Kalp yetmezliği var mı?
+    │
+    ├─ SEPSİS / RESÜSİTASYON aşaması
+    │       → Agresif kristalloid BOLUS (30 mL/kg) genellikle UYGUN DEĞİL
+    │       → Küçük alıkverişli bolus (250–500 mL) + dinamik yanıt (POCUS, BNP, JVP)
+    │       → Hipotansiyon devam: erken vazopressör (noradrenalin), diüretiği geçici kes
+    │       → O₂ ve non-invaziv ventilasyon; oturur pozisyon
+    │
+    ├─ ANTİBİYOTİK seçimi
+    │       → Makrolid (klaritromisin, azitromisin): QT uzaması → KAÇIN veya EKG izle
+    │       → Kinolon (levofloksasin, moksifloksasin): QT + tendinit → KAÇIN (alternatif varsa)
+    │       → TMP-SMX: hiperkalemi (spironolakton/ACEi ile) → K izle, mümkünse kaçın
+    │       → Tercih: amoksisilin, sefalosporin (3. kuşak dikkatli), doksisiklin, linezolid
+    │
+    └─ İDAME tedavisi
+            → Günlük tartı, giriş-çıkış; aşırı hidrasyon deliryum/KY alevlenmesi yapar
+            → Oral antibiyotik geçişi mümkünse erken taburculuk değerlendir
+```
+
+**Niçin?** KY’li yaşlıda pnömoni/sepsis mortalitesi yüksektir; fakat aşırı sıvı pulmoner ödem ve hipoksemi ile “tedavi zarar verir”.
+
+#### 3C. KOAH / kronik solunum hastalığı
+
+```
+KOAH var mı?
+    │
+    ├─ Pnömoni / alt solunum yolu enfeksiyonu
+    │       → Erken O₂ hedefi (SpO₂ 88–92% KOAH’da)
+    │       → Bronkodilatatör + steroid (KOAH alevlenmesi protokolü)
+    │       → Antibiyotik endikasyonu: purulan balgam + artan dispne (viral ayrımı)
+    │       → Tercih: amoksisilin-klavulanat, respiratuvar kinolon* (KY/KBH/QT yoksa)
+    │       → Teofilin kullanıyorsa: makrolid/kinolon → teofilin toksisitesi; düzey izle
+    │
+    └─ Sepsis
+            → Non-invaziv ventilasyon erken düşün
+            → Sedasyon minimal (CO₂ retansiyonu, deliryum)
+```
+
+#### 3D. Diyabet mellitus
+
+```
+Diyabet var mı?
+    │
+    ├─ Her enfeksiyon
+    │       → Ayak muayenesi ZORUNLU (diyabetik ayak enfeksiyonu atlanmasın)
+    │       → Kan glukozu sık izle (enfeksiyon hiperglisemi yapar)
+    │       → Metformin: sepsis/AKI/kontrast varsa GEÇİCİ DURDUR (laktik asidoz)
+    │       → SGLT2 inhibitörü: euglise riski → geçici durdur (cerrahi/sepsis)
+    │
+    ├─ Diyabetik ayak enfeksiyonu
+    │       → İskemi değerlendir (ABI, nabız); sadece antibiyotik yetmez
+    │       → MRSA + anaerob cover; genellikle hastane yatışı
+    │       → Cerrahi debridman / vasküler konsültasyon
+    │
+    └─ Kinolon
+            → Hipoglisemi ve tendinit riski (özellikle yaşlı + steroid) → alternatif tercih
+```
+
+#### 3E. Karaciğer hastalığı / siroz
+
+```
+Karaciğer hastalığı var mı?
+    │
+    ├─ Child-Pugh B–C
+    │       → Amoksisilin-klavulanat, doksisiklin: doz dikkat
+    │       → İzoniazid, ketokonazol, eritromisin: KAÇIN (hepatotoksisite)
+    │       → Sefalosporin genellikle güvenli (doz ayarlı)
+    │       → Spontan bakteriyel peritonit şüphesi: sefalosporin 3. kuşak + albümin protokolü
+    │
+    └─ Varfarin kullanımı (siroz sık)
+            → TMP-SMX, metronidazol, makrolid: INR ↑ → alternatif veya sık INR
+```
+
+#### 3F. Antikoagülan / antiplatelet / kanama riski
+
+```
+Antikoagülan veya yüksek kanama riski var mı?
+    │
+    ├─ Varfarin
+    │       → TMP-SMX: INR ciddi artış → KAÇIN veya alternatif + sık INR
+    │       → Metronidazol, klaritromisin, eritromisin: etkileşim → alternatif
+    │       → Seftriakson: nadir hipoprothrombinemi (malnütrisyon/K vitamini düşükse dikkat)
+    │
+    ├─ DOAC (apixaban, rivaroksaban vb.)
+    │       → TMP-SMX, ketokonazol, makrolid: plazma düzeyi ↑ → alternatif / doz gözden geçir
+    │       → Rifampisin: DOAC etkisiz → kaçın
+    │
+    └─ Düşük trombosit / aktif kanama
+            → Linezolid: trombositopeni → kaçın
+            → IM enjeksiyondan kaçın; subkutan heparin dikkat
+```
+
+#### 3G. QT uzaması / antiaritmik kullanımı
+
+```
+QT riski var mı? (EKG QTc >500 ms, amiodaron, sotalol, diüretik + elektrolit bozukluğu)
+    │
+    └─ EVET
+            → Makrolid (klaritromisin): KAÇIN
+            → Kinolon (moksifloksasin, levofloksasin): KAÇIN
+            → Azol antifungaller: KAÇIN
+            → Tercih: β-laktam, doksisiklin, linezolid
+            → Mg/K düzelt; EKG tekrarla
+```
+
+#### 3H. *C. difficile* öyküsü / yüksek kolit riski
+
+```
+CDI öyküsü veya kolit riski yüksek mi? (son antibiyotik, PPI, hospitalizasyon)
+    │
+    └─ EVET → “4C” grubundan KAÇIN:
+            ✗ Co-amoksislav
+            ✗ Ciprofloksacin / kinolonlar
+            ✗ Ceftriaxone / 3. kuşak sefalosporinler
+            ✗ Klindamisin
+            → Tercih: amoksisilin (klavulanatsız), doksisiklin, linezolid, vankomisin (sistemik endikasyon)
+            → Oral vankomisin profilaksisi rutin DEĞİL; yüksek riskte enfeksiyon hekimi görüşü
+```
+
+#### 3I. Demans, deliryum, Parkinson hastalığı
+
+```
+Nörolojik komorbidite var mı?
+    │
+    ├─ Demans / deliryum riski
+    │       → Deliryum önleyici: gözlük/işitme cihazı, mobilizasyon, uyku hijyeni
+    │       → Antipsikotik rutin profilaksi DEĞİL; şiddetli ajitasyonda düşük doz kısa süre
+    │       → Kinolon: deliryum riski → kaçın
+    │
+    └─ Parkinson hastalığı
+            → Metoklopramid, proklorperazin: KESİNLİKLE KAÇIN (parkinsonizm alevlenmesi)
+            → Kinolon, metronidazol: myoklonus/tremor artışı → alternatif
+            → Levodopa kesilmesin; enfeksiyon motor kötüleşme yapar
+```
+
+#### 3J. İmmünosupresyon (steroid, kemoterapi, biyolojik, transplant)
+
+```
+İmmünosupresyon var mı?
+    │
+    └─ EVET
+            → Ateşsiz ciddi enfeksiyon olabilir; düşük eşikle değerlendir
+            → Genişletilmiş empirisi düşün (pseudomonas, fungus, CMV bağlamında)
+            → Nötropeni: febril nötropeni protokolü (piperasilin-tazobaktam ± vankomisin)
+            → Profilaksi/antifungal: onkoloji/transplant rehberine uy
+            → Canlı aşılar: tedavi süresince kontrendike
+```
+
+#### 3K. Prostat hipertrofisi / idrar retansiyonu
+
+```
+İdrar boşaltım sorunu var mı?
+    │
+    └─ EVET
+            → Enfeksiyon tedavisinden ÖNCE retansiyon gider (kateter veya sonda)
+            → Antikolinergik ilaçlardan kaçın (OAB tedavisi geçici kes)
+            → Kateter varsa: enfeksiyon kaynağı olabilir → çıkar/değiştir planı
+```
+
+---
+
+### AŞAMA 4: BİRLEŞİK KOMORBİDİTE ALGORİTMASI (Pratik Karar Ağacı)
+
+Birden fazla komorbiditesi olan tipik yaşlı hasta için **antibiyotik seçimini adım adım** yönlendirir.
+
+```
+Empirik antibiyotik seçilecek (yaşlı hasta)
+        │
+        ▼
+┌─ ADIM 1: Acil tehlike var mı? ─────────────────────────────┐
+│  Septik şok / ciddi hipoksi / menenjit şüphesi              │
+│  → Geniş spektrum hemen; komorbidite doz/ilaç düzeltmesi    │
+│    sonraki 24 saatte (KBH dozu, KY sıvı kısıtı)             │
+└─────────────────────────────────────────────────────────────┘
+        │ stabil / orta ciddiyet
+        ▼
+┌─ ADIM 2: Mutlak kaçınılacaklar ────────────────────────────┐
+│  □ CDI öyküsü → 4C grubu çıkar                             │
+│  □ eGFR <30 → nitrofurantoin, aminoglikozid çıkar          │
+│  □ QT uzaması → makrolid, kinolon çıkar                    │
+│  □ Varfarin/DOAC → TMP-SMX, makrolid, metronidazol dikkat  │
+│  □ Parkinson → metoklopramid/proklorperazin yasak           │
+└─────────────────────────────────────────────────────────────┘
+        ▼
+┌─ ADIM 3: Odak-spesifik tercih (Aşama 2’den) ───────────────┐
+│  Pnömoni / İYE / deri / abdominal / sepsis                  │
+└─────────────────────────────────────────────────────────────┘
+        ▼
+┌─ ADIM 4: Komorbiditeye göre “tercih et / değiştir” ────────┐
+│  KBH + İYE:        fosfomisin / amoksisilin (doz ayarlı)   │
+│  KBH + sepsis:     meropenem veya pip-tazo (doz ayarlı)    │
+│  KY + pnömoni:     amoksisilin-klavulanat (kinolon yerine)  │
+│  KY + sepsis:      küçük bolus + erken vazopressör         │
+│  Diyabet + ayak:   MRSA cover + cerrahi değerlendirme      │
+│  KOAH + pnömoni:   amoksisilin-klavulanat + O₂/NIV         │
+│  İmmünosupresyon:  geniş spektrum + erken kültür           │
+└─────────────────────────────────────────────────────────────┘
+        ▼
+┌─ ADIM 5: Rota ve süre ─────────────────────────────────────┐
+│  Oral geçiş: afebrile 24–48 sa, oral alım var, stabil      │
+│  Süre: çoğu enfeksiyon 5–7 gün; kaynak kontrolü varsa kısa  │
+│  48–72 sa: klinik yanıt yok → odak/görüntüleme/direnç        │
+└─────────────────────────────────────────────────────────────┘
+```
+
+**Tablo 3.** Komorbiditeye göre kaçınılacak ve tercih edilecek antibiyotikler (özet)
+
+| Komorbidite | Kaçınılması / dikkat | Tercih edilebilir alternatifler |
 |---|---|---|
-| KBH | Nefrotoksisite, doz birikimi | eGFR’ye göre doz; vancomisin/trimetoprim düzeyi; kontrast/gadolin dikkat |
-| Kalp yetmezliği | Sıvı yükü, antibiyotik-kardiyotoksisite | Sepsis resüsitasyonunda aşırı sıvıdan kaçın; makrolid/kinolon QT riski |
-| Diyabet | İmmün baskı, ayak enfeksiyonu, ketoasidoz | Ayak muayenesi şart; glisemi sık izlem |
-| KOAH | Pnömoni ağır seyreder; steroid etkileşimi | Erken O₂, non-invaziv ventilasyon; antibiyotik + bronkodilatör planı |
-| Demans/deliryum | Tanı güç, sedasyon riski | 4AT ile deliryum taraması; antipsikotikleri minimumda tut |
-| Antikoagülan kullanımı | İlaç–ilaç etkileşimi, kanama | TMP-SMX, metronidazol, makrolidlerle INR/kanama riski |
-| Kortikosteroid/immünosupresyon | Ateşsiz seyir, atipik etken | Genişletilmiş empirisi düşün; antifungal/profilaksi gerekebilir |
+| **KBH (eGFR <30)** | Nitrofurantoin, aminoglikozid, yüksek doz TMP-SMX | Amoksisilin (doz ayarlı), ceftriaxone, fosfomisin*, meropenem |
+| **Kalp yetmezliği** | Agresif sıvı bolusu; QT uzatan ilaçlar | β-laktam, doksisiklin; küçük bolus + vazopressör |
+| **KOAH** | Aşırı O₂ (CO₂ retansiyonu) | Amoksisilin-klavulanat; NIV; teofilin etkileşimi kontrol |
+| **Diyabet** | Kinolon (hipoglisemi/tendinit); metformin (sepsis/AKI) | Sefalosporin, β-laktam; ayak muayenesi + glisemi izlemi |
+| **Karaciğer sirozu** | İzoniazid, eritromisin, azol (Child C) | Sefalosporin, amoksisilin; SBP protokolü |
+| **Varfarin/DOAC** | TMP-SMX, makrolid, metronidazol | Amoksisilin, sefalosporin, doksisiklin |
+| **QT uzaması** | Makrolid, kinolon, azol | β-laktam, linezolid, doksisiklin |
+| **CDI öyküsü** | 4C (co-amox, kinolon, 3. kuşak sef, klinda) | Amoksisilin, doksisiklin, linezolid |
+| **Parkinson** | Metoklopramid, proklorperazin, kinolon | Amoksisilin, sefalosporin |
+| **Demans/deliryum** | Kinolon, antikolinergik yüksek ilaçlar | β-laktam; deliryum önleyici bakım paketi |
+| **İmmünosupresyon** | Dar spektrum gecikmesi | Geniş spektrum empirisi; erken antifungal görüşü |
 
-### Sepsis yönetimi: yaşlıya uyarlanmış bakış
+*Fosfomisin: tek doz İYE; eGFR çok düşükse etkinlik azalabilir — yerel rehbere bak.
 
-Surviving Sepsis Campaign 2021 rehberi genel yetişkin popülasyonu hedefler; yaşlı kırılgan hastada şu uyarlamalar önerilir:
+---
 
-- **Erken antibiyotik:** Septik şokta 1 saat, sepsis şüphesinde mümkün olan en kısa süre (klinik bağlamda).
-- **Sıvı tedavisi:** Kırılgan/kardiyak hastada agresif kristalloidden kaçınma; dinamik değerlendirme.
-- **Vazopressör ve invaziv destek:** Frailty skoru, önceden belirlenmiş bakım hedefleri (ACP) ile birlikte değerlendirilmeli.
-- **Palyatif/bakım entegrasyonu:** Yaşam sonu veya “tedaviden daha çok zarar” senaryosunda antibiyotik kararı paylaşımlı olmalıdır.
+### AŞAMA 5: SEPSİS YÖNETİMİ — KOMORBİDİTEYE GÖRE UYARLANMIŞ ŞEMA
 
-**Niçin skorlama tek başına yeterli değil?** qSOFA yaşlıda duyarlılığı düşüktür; klinisyenin bedside değerlendirmesi ve seri vital izlem esastır.
+```
+SEPSİS / SEPTİK ŞOK (yaşlı hasta)
+        │
+        ├─ ANTİBİYOTİK
+        │       → Şok: 1 saat içinde geniş spektrum (Aşama 3–4 filtresi ile doz/ilaç)
+        │       → Sepsis (şoksuz): en kısa sürede; de-eskale 48–72 sa
+        │
+        ├─ SIVI (komorbiditeye göre DALLAN)
+        │       │
+        │       ├─ KY YOK, hipovolemik → kısıtlı bolus (500 mL) + yanıt değerlendir
+        │       │
+        │       ├─ KY VAR, EF düşük → 250 mL bolus + POCUS/JVP; yanıt yoksa vazopressör
+        │       │       → Diüretik geçici kes; aşırı sıvı ölüm riskini artırır
+        │       │
+        │       └─ KBH + diyaliz → volüm durumu diyaliz ekibi ile; nefrotoksiklerden kaçın
+        │
+        ├─ VAZOPRESSÖR / YOĞUN BAKIM
+        │       → Frailty yüksek + ACP “konfor odaklı” → invaziv destek sınırlı olabilir
+        │       → Multidisipliner karar (aile, geriatri, yoğun bakım)
+        │
+        └─ DESTEKLEYİCİ
+                → Kaynak kontrol (kateter, apse, debridman)
+                → Deliryum önleme
+                → Erken mobilizasyon (mümkünse)
+                → Palyatif entegrasyon (uygun hastalarda)
+```
+
+**Niçin skorlama tek başına yeterli değil?** qSOFA yaşlıda duyarlılığı düşüktür; KY/KBH ile organ yetmezliği sınırları belirsizleşir. Klinisyen muayenesi + seri vital + laktat esastır.
+
+---
+
+### AŞAMA 6: POLİFARMASİ VE İLAÇ–İLAÇ ETKİLEŞİM KONTROLÜ
+
+| Antibiyotik | Sık etkileşim (yaşlıda) | Sonuç | Ne yapılır? |
+|---|---|---|---|
+| Klarytromisin | Statin (simvastatin), varfarin | Rabdomiyoliz, kanama | Statin kes/geçici; alternatif antibiyotik |
+| TMP-SMX | Varfarin, ACEi/ARB, metotreksat | INR↑, hiperkalemi, miyelosupresyon | Alternatif; K/INR izle |
+| Metronidazol | Varfarin, alkol | INR↑, disulfiram reaksiyonu | Alternatif veya INR izle |
+| Kinolon | Teofilin, antidiyabetik, antiaritmik | Toksisite, hipoglisemi, QT | Alternatif tercih |
+| Vankomisin | Aminoglikozid, diüretik | Nefrotoksisite | Tek nefrotoksik; düzey izle |
+| Meropenem | Valproat, fenitoin | Düzey değişimi | Antiepileptik düzey izle |
+
+**Kural:** Yeni antibiyotik eklerken “5 ilaç kuralı” — gerçekten gerekli mi, en kısa süre mi, etkileşim var mı?
 
 ### Kaynak kontrolü ve bakım desteği
 
-Enfeksiyon tedavisi sadece antibiyotik değildir. Kateter çıkarılması/değişimi, idrar retansiyonu giderilmesi, dekubitus bakımı, aspirasyon önleme, yeterli hidratasyon ve erken mobilizasyon (deliryum önleme) tedavi başarısını belirler.
+Enfeksiyon tedavisi antibiyotikten ibarettir. Komorbidite yönetimi ile birlikte:
+
+- Kateter çıkarılması/değişimi (idrar, santral venöz)
+- İdrar retansiyonu giderilmesi (BPH, nörogen mesane)
+- Dekubitus bakımı ve bası yarası debridmanı
+- Aspirasyon önleme (yutma değerlendirmesi)
+- Yeterli ancak KY/KBH’ye uygun hidratasyon
+- Erken mobilizasyon ve deliryum önleme paketi
+- Glisemi, elektrolit, böbrek fonksiyonu günlük izlem (sepsis/KBH/KY’de)
 
 ---
 
@@ -270,6 +626,21 @@ Yaşlıda AMS hedefleri:
 
 **Yanlış yaklaşım:** “Yaşlı, tabii ki kötü” deyip gecikme.  
 **Doğru yaklaşım:** Sepsis protokolü + aynı anda frailty/ACP değerlendirmesi; erken antibiyotik; invaziv destek kararı multidisipliner; aile/hedef görüşmesi.
+
+### Senaryo 3: 90 yaş, kırılgan, hipotansif, laktat yüksek
+
+**Yanlış yaklaşım:** “Yaşlı, tabii ki kötü” deyip gecikme.  
+**Doğru yaklaşım:** Sepsis protokolü + aynı anda frailty/ACP değerlendirmesi; erken antibiyotik; invaziv destek kararı multidisipliner; aile/hedef görüşmesi.
+
+### Senaryo 4: 82 yaş, KY (EF %30) + KBH (eGFR 22), pnömoni + hipotansiyon
+
+**Yanlış yaklaşım:** 30 mL/kg sıvı bolusu + levofloksasin + standart doz TMP-SMX.  
+**Doğru yaklaşım:** 250 mL bolus + POCUS değerlendirme; erken noradrenalin; amoksisilin-klavulanat (kinolon yerine, QT/KBH riski); sepsis dozunda meropenem düşün (eGFR’ye göre ayarlı); diüretik geçici kes; günlük kreatinin/K; 48 saatte de-eskale.
+
+### Senaryo 5: 76 yaş, varfarin + Parkinson, İYE şüphesi
+
+**Yanlış yaklaşım:** TMP-SMX + metoklopramid (bulantı için).  
+**Doğru yaklaşım:** Semptomatik İYE doğrulandıysa fosfomisin veya amoksisilin; varfarin INR izlemi; metoklopramid kesinlikle verilmez; oral hidrasyon KY yoksa.
 
 ---
 
@@ -327,4 +698,4 @@ esastır. Algoritmik yaklaşım, klinik muhakemenin yerini almaz; ancak gecikmey
 
 ---
 
-*Kelime sayısı (yaklaşık): 3.800–4.200 | Tahmini A4 sayfa: 10–11 (12 punto, 1,5 satır aralığı) | Tahmini kitap sayfası: 7–8*
+*Kelime sayısı (yaklaşık): 5.500–6.200 | Tahmini A4 sayfa: 12–14 (12 punto, 1,5 satır aralığı) | Tahmini kitap sayfası: 8–10*
