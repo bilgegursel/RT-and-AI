@@ -627,11 +627,6 @@ Yaşlıda AMS hedefleri:
 **Yanlış yaklaşım:** “Yaşlı, tabii ki kötü” deyip gecikme.  
 **Doğru yaklaşım:** Sepsis protokolü + aynı anda frailty/ACP değerlendirmesi; erken antibiyotik; invaziv destek kararı multidisipliner; aile/hedef görüşmesi.
 
-### Senaryo 3: 90 yaş, kırılgan, hipotansif, laktat yüksek
-
-**Yanlış yaklaşım:** “Yaşlı, tabii ki kötü” deyip gecikme.  
-**Doğru yaklaşım:** Sepsis protokolü + aynı anda frailty/ACP değerlendirmesi; erken antibiyotik; invaziv destek kararı multidisipliner; aile/hedef görüşmesi.
-
 ### Senaryo 4: 82 yaş, KY (EF %30) + KBH (eGFR 22), pnömoni + hipotansiyon
 
 **Yanlış yaklaşım:** 30 mL/kg sıvı bolusu + levofloksasin + standart doz TMP-SMX.  
