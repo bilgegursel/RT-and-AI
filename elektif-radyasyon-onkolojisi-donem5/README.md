@@ -33,3 +33,7 @@ dönem 5 tıp öğrencileri için sadeleştirilmiş ve güncellenmiş **5×45 da
 ```bash
 python3 build_lectures.py
 ```
+
+
+## Additional English lecture pack
+See `chemical-carcinogens-lecture/` for the redesigned **Cancer & Predisposing Factors** deck (chemical carcinogens, tobacco, radiation) plus a Word lecture script.
