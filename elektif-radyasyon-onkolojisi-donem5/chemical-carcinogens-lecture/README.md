@@ -3,7 +3,7 @@
 Redesigned from `Predisposing factors Chemical carcinogens 2025.pptx`.
 
 ## Deliverables
-- `Cancer_Predisposing_Factors_Chemical_Tobacco_Radiation.pptx` — redesigned widescreen teaching deck (41 slides)
+- `Cancer_Predisposing_Factors_Chemical_Tobacco_Radiation.pptx` — redesigned widescreen teaching deck (72 slides)
 - `Lecture_Script_Cancer_Predisposing_Factors.docx` — spoken lecture script / teaching notes
 - `source_Predisposing_factors_Chemical_carcinogens_2025.pptx` — original upload
 

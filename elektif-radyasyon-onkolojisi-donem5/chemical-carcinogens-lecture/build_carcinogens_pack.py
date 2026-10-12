@@ -322,16 +322,15 @@ def slide_takeaways(prs, n, total):
     return s
 
 
+
 def build_pptx():
     prs = new_prs()
-    slides_meta = []  # for numbering after we know total — we'll build sequentially with placeholders
-
-    # We'll append functions that create slides; count first by building a list of callables
     builders = []
 
     def add(fn):
         builders.append(fn)
 
+    # ===== INTRO =====
     add(lambda i, t: slide_title(prs, i, t))
     add(lambda i, t: slide_objectives(prs, i, t))
     add(lambda i, t: slide_causes(prs, i, t))
@@ -344,6 +343,13 @@ def build_pptx():
          "Alcohol (ethanol) — IARC Group 1 carcinogen"],
         "Introduction", i, t))
     add(lambda i, t: slide_content(
+        prs, "Human Impact on the Environment — and the Reverse",
+        ["Industrialization changed the chemical load of air, water, soil, and food",
+         "Humans alter the environment; the environment then alters human disease patterns",
+         "Cancer maps often track exposure maps more than genetic maps",
+         "Prevention therefore includes both personal choices and public health control of exposures"],
+        "Introduction", i, t))
+    add(lambda i, t: slide_content(
         prs, "Environmental Risks",
         ["Second-hand smoke",
          "Air pollution and industrial emissions",
@@ -353,11 +359,20 @@ def build_pptx():
         "Introduction", i, t,
         "Environment + lifestyle explain most of the geographic variation in cancer."))
     add(lambda i, t: slide_content(
+        prs, "Inherited Risks",
+        ["Less than 15% of cancers are truly inherited cancer syndromes",
+         "Gene mutations linked to selected inherited cancers",
+         "Examples: colon, breast, ovarian, prostate, melanoma / skin cancers",
+         "Even with inheritance, environment often modifies penetrance and age of onset",
+         "Family history matters — but it is not the main story for most patients"],
+        "Introduction", i, t))
+    add(lambda i, t: slide_content(
         prs, "Environment and Cancer — Key Numbers",
         ["~27% of deaths in developed countries are due to cancer",
          "Lifetime cancer risk in developed countries ≈ 30%",
          "85–95% of cancers are related to environmental / lifestyle factors",
-         "Inherited predisposition accounts for <15% of cancers"],
+         "Inherited predisposition accounts for <15% of cancers",
+         "These figures justify a prevention-first teaching focus"],
         "Introduction", i, t))
     add(lambda i, t: slide_content(
         prs, "Avoidable Factors Linked to Cancer Deaths",
@@ -375,37 +390,57 @@ def build_pptx():
          "Incidence changes when populations migrate",
          "Incidence changes over calendar time",
          "Clear rises after defined exposures (asbestos, radiation, tobacco)",
-         "Japanese migrants to the USA: colorectal cancer rates shift toward US rates"],
+         "Geographic gaps are usually environmental, not purely racial"],
+        "Introduction", i, t))
+    add(lambda i, t: slide_content(
+        prs, "Geographic Variation — Teaching Point",
+        ["Clear discrimination of incidence and death rates by cancer type worldwide",
+         "Racial susceptibility cannot be fully excluded",
+         "Most geographic differences are believed to be environmental",
+         "Mortality comparisons of Japanese emigrants to the USA illustrate the shift",
+         "Children born in the host country often approach host-country rates"],
         "Introduction", i, t))
     add(lambda i, t: slide_twocol(
         prs, "Migration Example — Colorectal Cancer",
         "Born in Japan",
         ["Japanese males: 69.3 / 100,000",
          "Japanese females: 63.5 / 100,000",
-         "Lower Western-pattern risk"],
+         "Lower Western-pattern risk",
+         "Useful baseline for comparison"],
         "Born in the USA (Japanese ancestry)",
         ["Japanese males: 142.5 / 100,000",
          "Japanese females: 90.1 / 100,000",
-         "Rates approach host-country pattern"],
+         "Rates approach host-country pattern",
+         "Points to diet / lifestyle exposures"],
         "Introduction", i, t))
 
-    # PART 1 Chemical
+    # ===== CHEMICAL =====
     add(lambda i, t: slide_section(prs, "01", "Chemical Carcinogens",
                                    "Definition, classification, entry routes, and mechanisms", i, t))
     add(lambda i, t: slide_content(
         prs, "What Is a Carcinogen?",
         ["An agent that increases cancer incidence after contact (experimental or human data)",
          "1775 — Percival Pott: scrotal cancer in chimney sweeps",
-         "Later linked to polycyclic aromatic hydrocarbons (PAHs) in soot",
-         "Today: classified by IARC using human, animal, and mechanistic evidence"],
+         "Years later the soot carcinogen class was identified as PAHs",
+         "Today: classified by IARC using human, animal, and mechanistic evidence",
+         "Teaching definition must include dose, route, and latency"],
         "Chemical Carcinogens", i, t))
     add(lambda i, t: slide_iarc(prs, i, t))
     add(lambda i, t: slide_content(
+        prs, "Using IARC in Clinical Teaching",
+        ["Group 1 answers: “Is this an established human carcinogen?”",
+         "Group 2A/2B signal caution and research / exposure control",
+         "Classification is not the same as individual risk prediction",
+         "Always ask: Who is exposed? How much? For how long?",
+         "Monographs: https://monographs.iarc.who.int/"],
+        "Chemical Carcinogens", i, t))
+    add(lambda i, t: slide_content(
         prs, "How Carcinogens Enter the Body",
         ["Inhalation — gases, fumes, dusts, smoke (most common occupational route)",
-         "Skin absorption — solvents and many industrial chemicals",
+         "Skin absorption — solvents and many industrial chemicals cross intact skin",
          "Ingestion — contaminated food, water, accidental swallowing",
-         "Exposure intensity × duration × individual susceptibility → risk"],
+         "Exposure intensity × duration × individual susceptibility → risk",
+         "Same agent may hit different organs depending on route and metabolism"],
         "Chemical Carcinogens", i, t))
     add(lambda i, t: slide_twocol(
         prs, "Mode of Action Classification",
@@ -426,23 +461,59 @@ def build_pptx():
         prs, "Genotoxic Carcinogens — Subtypes",
         ["Direct carcinogens — no metabolic activation (e.g., alkylating agents)",
          "Indirect / procarcinogens — need activation (PAHs, aromatic amines, nitrosamines)",
-         "Metabolic activation often via CYP450 enzymes",
-         "Inorganic carcinogens — Ni, Cr, Cd, As and related compounds"],
+         "Natural substances can also be genotoxic carcinogens (e.g., aflatoxin B1)",
+         "Inorganic carcinogens — Ni, Cr, Cd, As and related compounds",
+         "Metabolic activation often via CYP450 enzymes and cofactors"],
         "Chemical Carcinogens", i, t,
         "Procarcinogen → ultimate carcinogen → DNA adduct."))
     add(lambda i, t: slide_content(
-        prs, "Non-Genotoxic Mechanisms",
+        prs, "Metabolic Activation",
+        ["Many carcinogens are inactive until biotransformed",
+         "CYP450s are the classic activation enzymes",
+         "Receptors, cofactors, and conjugating enzymes also participate",
+         "Inter-individual enzyme differences help explain susceptibility",
+         "Detoxification pathways can protect — or, if overloaded, fail"],
+        "Chemical Carcinogens", i, t))
+    add(lambda i, t: slide_content(
+        prs, "Non-Genotoxic Carcinogens",
         ["Mitogens — stimulate proliferation; mutations may arise secondarily",
+         "May cause preferential growth of preneoplastic cells",
          "Cytotoxicants — cell death → regenerative growth",
-         "Decreased apoptosis; altered gene expression",
-         "Receptor activation / signaling changes",
-         "Oxidative stress and enzyme induction"],
+         "Secondary mutations can appear during regeneration",
+         "Detection usually requires long-term rodent carcinogenicity bioassays"],
+        "Chemical Carcinogens", i, t))
+    add(lambda i, t: slide_content(
+        prs, "Mechanisms of Non-Genotoxic Carcinogenesis",
+        ["Increased cell proliferation",
+         "Decreased apoptosis",
+         "Changes in gene expression (epigenetic / transcriptional)",
+         "Induction of metabolizing enzymes",
+         "Activation of receptors and signaling pathways",
+         "Oxidative stress"],
         "Chemical Carcinogens", i, t))
     add(lambda i, t: slide_process(
         prs, "Steps of Carcinogenesis",
         [("Initiation", "Irreversible heritable DNA change in a key regulatory pathway"),
          ("Promotion", "Selective clonal expansion of initiated cells; reversible if stopped"),
          ("Progression", "Genetic instability → invasion, angiogenesis, metastasis")],
+        "Chemical Carcinogens", i, t))
+    add(lambda i, t: slide_content(
+        prs, "Initiation — Definition & Properties",
+        ["Point at which an irreversible alteration (usually genetic) enters a target cell",
+         "Genotoxicity = interaction with DNA",
+         "May convert a proto-oncogene into an oncogene",
+         "Properties: irreversible; caused by carcinogenic compounds; occurs rapidly",
+         "Generally alone does not produce a tumor",
+         "Several initiator exposures may produce tumors without a classic promoter"],
+        "Chemical Carcinogens", i, t))
+    add(lambda i, t: slide_content(
+        prs, "Targets of Initiation",
+        ["Mutational activation of oncogenic / proliferative pathways",
+         "  – growth-factor receptors, signaling proteins, cell-cycle checkpoints",
+         "Mutational inactivation of apoptotic pathways",
+         "  – growth-inhibitory receptors, apoptosis proteins, tumor suppressors",
+         "Mutational inactivation of DNA repair (BER, NER, etc.)",
+         "Mutational inactivation of antioxidant responses (e.g., SOD)"],
         "Chemical Carcinogens", i, t))
     add(lambda i, t: slide_twocol(
         prs, "Initiation vs Promotion",
@@ -457,42 +528,92 @@ def build_pptx():
          "Acts only after initiation",
          "Needs repeated promoter exposure",
          "Not carcinogenic by itself",
-         "Classic example: PAH initiator + phorbol ester promoter"],
+         "Classic example: PAH initiator + phorbol ester"],
+        "Chemical Carcinogens", i, t))
+    add(lambda i, t: slide_content(
+        prs, "Promotion — More Detail",
+        ["Epigenetic event — change in gene expression without DNA sequence change",
+         "Mitogenic (not mutagenic): stimulates proliferation of mutated and normal cells",
+         "Enhances initiator effect by establishing clones of initiated cells",
+         "Long delay may exist between initiator and promoter administration",
+         "Requires continuous stimulation to maintain focal proliferations",
+         "Example: benzo[a]pyrene (initiator) + cotton-oil phorbol ester (promoter) in mouse skin"],
         "Chemical Carcinogens", i, t))
     add(lambda i, t: slide_content(
         prs, "Progression",
-        ["Irreversible phase that can lead to metastasis",
-         "Further mutations from chromosomal instability",
-         "Recruitment of inflammatory immune cells",
-         "Acquisition of wound-healing traits (angiogenesis, proteases)",
-         "Progressor examples: inflammation, asbestos, benzene, oxidative stress"],
-        "Chemical Carcinogens", i, t))
-
-    # Environmental chemicals
-    add(lambda i, t: slide_section(prs, "02", "Environmental & Occupational Chemicals",
-                                   "Major agents students should recognize", i, t))
-    add(lambda i, t: slide_twocol(
-        prs, "Key Chemical Groups",
-        "Organic agents",
-        ["Benzene → leukemia",
-         "PAHs → lung, skin, urinary cancers",
-         "Vinyl chloride → hepatic angiosarcoma",
-         "Benzidine → bladder cancer (dyes)",
-         "Dioxins — persistent, fat-soluble"],
-        "Metals & dusts",
-        ["Arsenic — skin, lung, bladder…",
-         "Chromium / nickel — lung, nasal",
-         "Cadmium — lung",
-         "Asbestos — mesothelioma + several solid tumors",
-         "Silica / wood dust — lung / sinonasal"],
+        ["Irreversible process that can lead to metastasis",
+         "Further mutations from chromosomal / genetic instability during promotion",
+         "Recruitment of inflammatory immune cells to the tumor",
+         "Tumor cells acquire wound-healing traits (chemoattractants, angiogenesis, proteases)",
+         "Progressor examples: inflammation, asbestos fibers, benzene, benzoyl peroxide, oxidative stress"],
         "Chemical Carcinogens", i, t))
     add(lambda i, t: slide_content(
-        prs, "Selected Agents — Clinical Highlights",
-        ["Benzene: industrial solvent; also in cigarette smoke & gasoline; strongest link to leukemia",
-         "PAHs: burning of carbon-based material — smoke, exhaust, grilled foods",
-         "Dioxins: paper bleaching / incineration byproducts; half-life in body ~7–11 years",
-         "Vinyl chloride: plastics industry; lung cancer and liver/brain angiosarcomas",
-         "Pesticides: higher blood/lymphatic cancers and several solid tumors in highly exposed workers"],
+        prs, "Genotoxic + Non-Genotoxic Effects Together",
+        ["Real-world exposures often combine both classes of action",
+         "An agent may initiate DNA damage and also drive proliferation",
+         "Chronic inflammation bridges cytotoxicity, ROS, and clonal selection",
+         "Teaching model: DNA hit starts the story; growth selection writes the next chapters",
+         "This dual view prepares students for tobacco and radiation sections"],
+        "Chemical Carcinogens", i, t))
+
+    # ===== ENV / OCC =====
+    add(lambda i, t: slide_section(prs, "02", "Environmental & Occupational Chemicals",
+                                   "Major agents students should recognize", i, t))
+    add(lambda i, t: slide_content(
+        prs, "Pesticides",
+        ["About 20 pesticide ingredients have caused cancer in animals",
+         "High-exposure groups: farmers, crop-duster pilots, manufacturers",
+         "Higher rates of blood and lymphatic cancers reported",
+         "Also linked in studies to melanoma and cancers of lip, stomach, brain, lung, prostate",
+         "Message: exposure control and protective equipment matter"],
+        "Chemical Carcinogens", i, t))
+    add(lambda i, t: slide_content(
+        prs, "Solvents",
+        ["Used in paint removers, grease removers, thinners, dry cleaning",
+         "Benzene, carbon tetrachloride, chloroform, methylene chloride linked to human cancer",
+         "Strongest solvent evidence: benzene → leukemia",
+         "Benzene is also found in cigarette smoke and gasoline",
+         "Occupational hygiene and substitution are primary prevention tools"],
+        "Chemical Carcinogens", i, t))
+    add(lambda i, t: slide_content(
+        prs, "Benzene — Clinical Spotlight",
+        ["IARC Group 1 human carcinogen",
+         "Industrial solvent; also in tobacco smoke and gasoline vapor",
+         "Strongest cancer link: leukemia",
+         "Inhalation is the dominant exposure route",
+         "Useful classroom bridge between occupation and smoking sections"],
+        "Chemical Carcinogens", i, t))
+    add(lambda i, t: slide_content(
+        prs, "Dioxins",
+        ["Byproducts of paper bleaching, smelting, and waste incineration",
+         "Break down very slowly → widespread environmental persistence",
+         "Accumulate in fat cells",
+         "Most human exposure comes from dairy products, fish, and meat",
+         "Body half-life estimated at about 7–11 years"],
+        "Chemical Carcinogens", i, t))
+    add(lambda i, t: slide_content(
+        prs, "Polycyclic Aromatic Hydrocarbons (PAHs)",
+        ["Come from burning carbon-based material",
+         "Found in wood smoke, car exhaust, cigarette smoke, charcoal-grilled foods",
+         "Also reported in sausages and roasted coffees",
+         "Linked to increased risks of lung, skin, and urinary cancers",
+         "Historically connected to Percival Pott’s soot / scrotal cancer observation"],
+        "Chemical Carcinogens", i, t))
+    add(lambda i, t: slide_content(
+        prs, "Vinyl Chloride",
+        ["Used in the plastics industry",
+         "Associated with lung cancer",
+         "Classic association: angiosarcomas of the liver (and brain reported)",
+         "Most people are not routinely exposed unless they work in plastics plants",
+         "Nearby residents may be exposed via contaminated air"],
+        "Chemical Carcinogens", i, t))
+    add(lambda i, t: slide_content(
+        prs, "Benzidine",
+        ["Known cancer association since the 1920s",
+         "Used in dye production for paper, textiles, and leather",
+         "Classic occupational bladder carcinogen",
+         "Exposure can occur around workstations, bulk/process containers, dye dust",
+         "Historical control of aromatic amine dyes is a public-health success story"],
         "Chemical Carcinogens", i, t))
     add(lambda i, t: slide_table_like(
         prs, "Selected Metals and Related Cancers",
@@ -507,46 +628,133 @@ def build_pptx():
         ["Metal", "Associated cancers", "Human carcinogen?"],
         "Chemical Carcinogens", i, t))
     add(lambda i, t: slide_content(
-        prs, "Occupational Cancer — High-Yield List",
-        ["Asbestos → lung, larynx, ovary, GI sites, mesothelioma",
-         "Wood dust → nasopharynx / sinonasal cancers",
-         "Diesel exhaust → lung, bladder",
-         "Coal tars / pitches → non-melanoma skin cancer",
-         "Painters / welders — elevated lung (and other) risks",
-         "Night-shift work — associated with breast cancer risk (IARC)"],
-        "Chemical Carcinogens", i, t, cols=1))
+        prs, "Where Are These Metals Found?",
+        ["Arsenic — wood preservatives, glass, pesticides",
+         "Beryllium — nuclear weapons, rocket fuel, ceramics, glass, plastics, fiberoptics",
+         "Cadmium — metal coatings, plastics, batteries, fungicides",
+         "Chromium — automotive parts, plating, cement, asphalt roofing, paper",
+         "Nickel — steel, dental fillings, batteries, magnets, glazes",
+         "Lead — dyes, coatings, paints/varnishes, some plastics and specialty glass"],
+        "Chemical Carcinogens", i, t))
     add(lambda i, t: slide_content(
-        prs, "Site–Agent Links (Examples for Teaching)",
-        ["Liver: aflatoxin B1, ethanol, vinyl chloride, arsenic",
-         "Thyroid / melanoma: ionizing radiation; UV for melanoma",
-         "NHL: benzene, dioxins, several solvents/pesticides",
-         "Breast: active smoking, alcohol, ionizing radiation, hormones",
-         "Childhood leukemia / brain tumors: radiation, benzene, pesticides, second-hand smoke"],
+        prs, "Occupational Cancer — List 1",
+        ["Asbestos fibers → colorectal, larynx, lung, ovary, pharynx, stomach cancers; mesothelioma",
+         "Wood dusts → nasopharynx and sinonasal cancers",
+         "UV radiation from sunlight → skin cancers",
+         "Metalworking fluids and mineral oils → bladder, lung, sinonasal, skin cancers",
+         "Silica dust → lung cancer"],
+        "Chemical Carcinogens", i, t))
+    add(lambda i, t: slide_content(
+        prs, "Occupational Cancer — List 2",
+        ["Diesel engine exhaust → bladder and lung cancers",
+         "Coal tars and pitches → non-melanoma skin cancer",
+         "Work as a painter → bladder and lung cancers",
+         "Work as a welder → lung cancer; melanoma of the eye",
+         "Shift (night) work → associated with breast cancer risk"],
+        "Chemical Carcinogens", i, t))
+    add(lambda i, t: slide_content(
+        prs, "Liver Cancer — Documented Links",
+        ["Strong: aflatoxin B1, androgens, ethanol, hydrocarbons, N-nitrosodimethylamine",
+         "Good: arsenic, captafol, PCBs, thorium dioxide (Thorotrast), TCE, vinyl chloride",
+         "Teaching use: one organ, many pathways (fungal toxin, alcohol, industrial chemical)",
+         "Aflatoxin + chronic HBV is a classic synergistic pair worldwide"],
+        "Chemical Carcinogens", i, t,
+        "Source pattern: CHE Toxicant and Disease Database (teaching compilation)."))
+    add(lambda i, t: slide_twocol(
+        prs, "Thyroid & Melanoma — Documented Links",
+        "Thyroid cancer",
+        ["Ionizing radiation — Strong",
+         "Ethylene thiourea (ETU) — Good",
+         "Age at radiation exposure is critical",
+         "Children are especially vulnerable"],
+        "Melanoma",
+        ["UV radiation — Strong",
+         "Sun exposure and tanning beds",
+         "Prevention = shade, clothing, sunscreen",
+         "Different biology from non-melanoma skin cancers"],
+        "Chemical Carcinogens", i, t))
+    add(lambda i, t: slide_content(
+        prs, "Non-Hodgkin Lymphoma — Documented Links",
+        ["Strong: 1,3-butadiene, benzene, dioxins/TCDD",
+         "Good evidence signals: 2,4-D, Agent Orange, many organochlorine/organophosphate pesticides",
+         "Also: solvents, PCE, TCE, PCBs, creosotes, ionizing radiation",
+         "Teaching point: hematologic malignancy can track chemical landscapes",
+         "Useful bridge to benzene and dioxin slides"],
+        "Chemical Carcinogens", i, t))
+    add(lambda i, t: slide_content(
+        prs, "Breast Cancer — Documented Links",
+        ["Strong: active smoking, estrogens/DES, ethanol, ionizing radiation",
+         "Second-hand smoke — strong/probable signal in compilations",
+         "Good: aromatic amines, ethylene oxide, PAHs, PCBs, progestins, solvents, PCE",
+         "Shows how lifestyle, hormones, chemicals, and radiation intersect",
+         "Night-shift work discussed under occupational risks"],
+        "Chemical Carcinogens", i, t))
+    add(lambda i, t: slide_twocol(
+        prs, "Childhood Cancers — Documented Links",
+        "Childhood brain cancer",
+        ["Ionizing radiation — Strong",
+         "Dichlorvos, lindane — Good",
+         "Pesticides — Good",
+         "Second-hand smoke — Good",
+         "Solvents — Good"],
+        "Childhood leukemias",
+        ["Benzene — Strong",
+         "Ionizing radiation — Strong",
+         "Agent Orange / solvents / TCE — Good",
+         "Metal dusts, pesticides — Good",
+         "Second-hand smoke — Good"],
         "Chemical Carcinogens", i, t))
 
-    # Tobacco
+    # ===== TOBACCO =====
     add(lambda i, t: slide_section(prs, "03", "Tobacco & Cancer",
                                    "Constituents, mechanisms, and multi-site disease", i, t))
     add(lambda i, t: slide_content(
         prs, "Tobacco — The Scale of the Problem",
-        ["Hundreds of thousands of smoking-attributable deaths yearly (US estimates historically ~443,000 including second-hand smoke)",
+        ["Historically ~443,000 US smoking-attributable deaths/year (incl. ~49,000 from second-hand smoke)",
          "Leading cause of lung cancer death in men and women",
          "~90% of male and ~80% of female lung cancer deaths linked to smoking",
-         "Also causes cancers of throat, mouth, nasal cavity, esophagus, stomach, pancreas, kidney, bladder, cervix",
-         "Acute myeloid leukemia is also smoking-related"],
+         "Also: throat, mouth, nasal cavity, esophagus, stomach, pancreas, kidney, bladder, cervix",
+         "Acute myeloid leukemia is smoking-related"],
         "Tobacco", i, t))
     add(lambda i, t: slide_content(
         prs, "What Is in a Burning Cigarette?",
         ["~4,000 chemicals released when a cigarette burns",
          ">70 known cancer-causing chemicals",
-         "Hundreds of other toxicants",
-         "Nicotine — highly addictive; keeps exposure chronic",
-         "Additives that improve taste and sustain addiction"],
+         "Hundreds of other poisons / toxicants",
+         "Nicotine — highly addictive; sustains chronic exposure",
+         "Additives designed to improve taste and keep smokers hooked"],
         "Tobacco", i, t,
         "Addiction converts episodic exposure into lifelong cumulative dose."))
+    add(lambda i, t: slide_content(
+        prs, "Cancer-Causing Chemicals in Tobacco Smoke — List A",
+        ["Tar — mixture of dangerous chemicals",
+         "Arsenic — used in wood preservatives",
+         "Benzene — industrial solvent from crude oil",
+         "Cadmium — used in batteries",
+         "Formaldehyde — mortuaries / paint manufacturing",
+         "Polonium-210 — highly radioactive element"],
+        "Tobacco", i, t))
+    add(lambda i, t: slide_content(
+        prs, "Cancer-Causing Chemicals in Tobacco Smoke — List B",
+        ["Chromium — dyes, paints, alloys",
+         "1,3-Butadiene — rubber manufacturing",
+         "Polycyclic aromatic hydrocarbons — DNA-damaging group",
+         "Nitrosamines — another DNA-damaging group (incl. tobacco-specific)",
+         "Acrolein — historically used as a chemical weapon",
+         "Plus many additional carcinogens and co-carcinogens"],
+        "Tobacco", i, t))
+    add(lambda i, t: slide_content(
+        prs, "Selected Named Carcinogens Identified in Tobacco",
+        ["PAHs: benz[a]anthracene, benzo[a]pyrene, chrysene, dibenzanthracenes…",
+         "Nitrosamines: NNK-related and N-nitrosodimethylamine / diethylamine family",
+         "Aromatic amines: alpha-naphthylamine and related compounds",
+         "Metals / radioisotope: cadmium, nickel compounds, arsenic, polonium-210",
+         "Volatile organics: benzene, aminostilbene, and many others",
+         "This list is illustrative — smoke is a complex mixture, not a single toxin"],
+        "Tobacco", i, t))
     add(lambda i, t: slide_twocol(
-        prs, "Cancer-Causing Chemicals in Smoke",
-        "DNA-damaging groups",
+        prs, "Major Carcinogen Classes in Smoke",
+        "DNA-damaging organics",
         ["Polycyclic aromatic hydrocarbons (PAHs)",
          "N-nitrosamines (incl. tobacco-specific)",
          "Benzene",
@@ -569,15 +777,31 @@ def build_pptx():
          "Second-hand smoke also carries proven carcinogenic risk"],
         "Tobacco", i, t))
     add(lambda i, t: slide_content(
+        prs, "From Smoke Chemistry to Clinical Disease",
+        ["Local contact cancers: mouth, throat, larynx, lung",
+         "Distant / systemic cancers: bladder, kidney, pancreas, cervix, AML",
+         "Explains why “filter tips” never made cigarettes safe",
+         "Dose–response with pack-years is a core bedside teaching tool",
+         "Cessation lowers risk; earlier quitting yields larger benefit"],
+        "Tobacco", i, t))
+    add(lambda i, t: slide_content(
         prs, "Clinical Teaching Points — Tobacco",
         ["Dose–response: pack-years correlate with risk",
          "Risk falls after cessation but never fully equals never-smokers for some sites",
-         "Synergy with radon, asbestos, alcohol (depending on site)",
+         "Synergy with radon, asbestos, alcohol (site-dependent)",
          "Prevention priority #1 in cancer control globally",
          "Ask–Advise–Assist–Arrange: every clinician’s brief intervention"],
         "Tobacco", i, t))
+    add(lambda i, t: slide_content(
+        prs, "Second-Hand Smoke",
+        ["Not a mild nuisance — a carcinogenic exposure",
+         "Contributes tens of thousands of attributable deaths in large populations",
+         "Linked to lung cancer in nonsmokers",
+         "Also appears in childhood cancer association lists",
+         "Smoke-free laws are cancer-prevention policy, not etiquette"],
+        "Tobacco", i, t))
 
-    # Radiation
+    # ===== RADIATION =====
     add(lambda i, t: slide_section(prs, "04", "Radiation Carcinogenesis",
                                    "Ionizing radiation, UV light, and DNA injury", i, t))
     add(lambda i, t: slide_content(
@@ -597,9 +821,17 @@ def build_pptx():
          "Dominant for high-LET radiation"],
         "Indirect action",
         ["Radiolysis of water → free radicals (•OH)",
-         "Radicals attack DNA/proteins/lipids",
-         "Major pathway for X/γ rays",
+         "Radicals attack DNA / proteins / lipids",
+         "Major pathway for X / γ rays",
          "Oxygen enhances damage (OER)"],
+        "Radiation", i, t))
+    add(lambda i, t: slide_content(
+        prs, "Interaction of Radiation with DNA — Teaching Detail",
+        ["Energy deposition is clustered at the nanometer scale",
+         "Complex damage is harder to repair accurately than simple lesions",
+         "Misrepaired DSBs create chromosomal aberrations",
+         "Daughter cells may inherit instability",
+         "This is the physical → chemical → biological chain of carcinogenesis"],
         "Radiation", i, t))
     add(lambda i, t: slide_content(
         prs, "From DNA Damage to Cancer",
@@ -610,6 +842,14 @@ def build_pptx():
          "Classic human evidence: atomic-bomb survivors, medical irradiation, radon miners"],
         "Radiation", i, t))
     add(lambda i, t: slide_content(
+        prs, "Dose, Age, and Latency",
+        ["Higher dose generally → higher risk (with tissue-specific nuances)",
+         "Younger age at exposure often → higher lifetime risk",
+         "Leukemias appear earlier; solid tumors later",
+         "Fractionation and dose rate modify biologic effect",
+         "Never quote a single “safe” threshold for stochastic cancer risk in teaching"],
+        "Radiation", i, t))
+    add(lambda i, t: slide_content(
         prs, "Tissue Sensitivity & Notable Outcomes",
         ["Highly sensitive: bone marrow (leukemia), thyroid (esp. children), breast, lung",
          "Childhood exposure carries higher lifetime risk for many tissues",
@@ -617,16 +857,37 @@ def build_pptx():
          "Breast cancer risk rises with chest irradiation at young ages",
          "UV → basal cell / squamous cell carcinoma and melanoma"],
         "Radiation", i, t))
+    add(lambda i, t: slide_twocol(
+        prs, "Ionizing vs UV Radiation",
+        "Ionizing",
+        ["X-rays, γ-rays, particles",
+         "Deep tissues can be affected",
+         "Leukemia + many solid tumors",
+         "Medical, occupational, environmental sources"],
+        "Ultraviolet",
+        ["UVB / UVA from sun & tanning beds",
+         "Skin as primary target",
+         "Melanoma and non-melanoma skin cancers",
+         "Prevention is highly effective"],
+        "Radiation", i, t))
     add(lambda i, t: slide_content(
         prs, "Medical Radiation — Balanced Message",
         ["Diagnostic imaging: keep doses ALARA; justify every exam",
-         "Therapeutic radiotherapy: cancer cure/control outweighs secondary-cancer risk in indicated patients",
+         "Therapeutic radiotherapy: cancer cure/control outweighs secondary-cancer risk when indicated",
          "Secondary malignancies are uncommon but real — relevant in long-term survivors",
          "Pediatric patients need special dose/volume discipline",
          "Communicate risk honestly without creating fear of necessary care"],
         "Radiation", i, t))
+    add(lambda i, t: slide_content(
+        prs, "Radiation + Chemicals — Combined Thinking",
+        ["Tobacco + radon / asbestos: synergistic lung cancer risk",
+         "Chemotherapy / radiation combinations matter in survivors",
+         "Oxidative stress is a shared final pathway with many chemicals",
+         "Students should stop thinking in silos: exposures travel together",
+         "Prevention packages (smoke-free + workplace + sun safety) beat single slogans"],
+        "Radiation", i, t))
 
-    # Close
+    # ===== CLOSE =====
     add(lambda i, t: slide_section(prs, "05", "Prevention",
                                    "Avoid the avoidable", i, t))
     add(lambda i, t: slide_content(
@@ -639,11 +900,19 @@ def build_pptx():
          "Vaccination / infection control where relevant (HPV, HBV)",
          "Rational use of medical radiation"],
         "Prevention", i, t))
+    add(lambda i, t: slide_content(
+        prs, "What a Future Doctor Should Remember",
+        ["Ask about occupation and hobbies that involve chemicals / dusts / solvents",
+         "Ask about smoking and advise cessation at every opportunity",
+         "Do not order imaging without a clinical question",
+         "Counsel sun safety and workplace protection as cancer prevention",
+         "Know where to look up IARC classifications when uncertain"],
+        "Prevention", i, t))
     add(lambda i, t: slide_takeaways(prs, i, t))
     add(lambda i, t: slide_content(
         prs, "Selected References",
-        ["IARC Monographs on the Identification of Carcinogenic Hazards — https://monographs.iarc.who.int/",
-         "Doll R. Recent Results in Cancer Research 1998;154:3–21 (avoidable risks)",
+        ["IARC Monographs — https://monographs.iarc.who.int/",
+         "Doll R. Recent Results in Cancer Research 1998;154:3–21",
          "Robbins & Kumar — Basic Pathology (carcinogenesis chapters)",
          "DeVita, Hellman, Rosenberg — Cancer: Principles & Practice of Oncology",
          "Perez & Brady — Principles and Practice of Radiation Oncology",
@@ -659,6 +928,7 @@ def build_pptx():
     prs.save(path)
     print(f"Saved PPTX: {path.name} ({total} slides)")
     return path, total
+
 
 
 def set_doc_style(doc):
@@ -841,14 +1111,15 @@ def build_docx():
         "Radiation risk is real, dose- and age-dependent, and must be balanced with medical benefit.",
     ])
 
-    add_heading(doc, "7. Suggested Classroom Timing (≈ 50–55 minutes)", 1)
+    add_heading(doc, "7. Suggested Classroom Timing (≈ 70–80 minutes, or split into 2 sessions)", 1)
     add_bullets(doc, [
-        "0–3 min — Hook & objectives",
-        "3–12 min — Predisposing factors & avoidable risks",
-        "12–32 min — Chemical carcinogens & occupation",
-        "32–43 min — Tobacco",
-        "43–53 min — Radiation",
-        "53–55 min — Prevention & take-home messages",
+        "0–5 min — Hook & objectives",
+        "5–18 min — Predisposing factors, avoidable risks, migration evidence",
+        "18–45 min — Chemical carcinogens (mechanisms + environmental/occupational catalogue)",
+        "45–60 min — Tobacco (constituents, mechanisms, multi-site disease)",
+        "60–75 min — Radiation carcinogenesis",
+        "75–80 min — Prevention & take-home messages",
+        "If time is short: keep all mechanism slides; skim long agent lists and point students to the deck.",
     ])
 
     add_heading(doc, "8. Optional Mini-Cases / Questions", 1)
@@ -886,10 +1157,11 @@ def build_docx():
     return path
 
 
+
 if __name__ == "__main__":
+    import shutil
     pptx_path, n = build_pptx()
     docx_path = build_docx()
-    # copy source
     src = Path("/home/ubuntu/.cursor/projects/workspace/uploads/Predisposing_factors_Chemical_carcinogens_2025_59c8.pptx")
     if src.exists():
         dest = OUT / "source_Predisposing_factors_Chemical_carcinogens_2025.pptx"
@@ -922,3 +1194,16 @@ python3 build_carcinogens_pack.py
         encoding="utf-8",
     )
     print("Saved README.md")
+
+    # Save copies to Desktop and artifacts
+    desktop = Path("/home/ubuntu/Desktop")
+    desktop.mkdir(parents=True, exist_ok=True)
+    artifacts = Path("/opt/cursor/artifacts")
+    artifacts.mkdir(parents=True, exist_ok=True)
+    for target in (desktop, artifacts, OUT):
+        pass
+    for f in (pptx_path, docx_path):
+        shutil.copy2(f, desktop / f.name)
+        shutil.copy2(f, artifacts / f.name)
+        print(f"Copied to Desktop: {desktop / f.name}")
+        print(f"Copied to artifacts: {artifacts / f.name}")
