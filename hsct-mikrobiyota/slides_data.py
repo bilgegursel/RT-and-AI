@@ -1,0 +1,166 @@
+# -*- coding: utf-8 -*-
+"""20 dakikalık sunu slayt içerikleri ve konuşma notları."""
+
+SLIDES = [
+    (
+        'title',
+        'Kök Hücre Transplantasyonunda Mikrobiyota',
+        'Patogenez · Klinik Sonuçlar · Müdahaleler\n20 dakikalık derleme sunumu',
+        'Merhaba. Bu yirmi dakikalık derlemede allojeneik hematopoietik kök hücre transplantasyonunda bağırsak mikrobiyotasını ele alacağız. Amacımız üç katmanlı: bir, disbiyozun tipik paternini tanımak; iki, GVHD, enfeksiyon ve mortaliteyle nedensel ve prognostik bağlantıları özetlemek; üç, antibiyotik yönetimi, prebiyotikler ve fekal mikrobiyota transplantasyonu gibi müdahalelerin güncel kanıt düzeyini netleştirmek. Kaynakçada hem Peled, Taur, Jenq, Mathewson gibi landmark çalışmalar hem de 2023–2025 meta-analiz ve klinik denemeleri yer alıyor. Sunum boyunca numaralı atıfları slaytlarda köşeli parantezle göreceksiniz. Tempo yaklaşık dakikada yüz on sözcük olacak; ara slaytlarda nefes almak için kısa duraklamalar bıraktım. Lütfen not alın; sonunda beş pratik mesajla kapanacağız. Sunum derleme dosyasıyla birlikte tasarlandı; slayt numaraları ve köşeli parantez atıflar Word metnindeki kaynakça ile uyumludur. Tempo hızlı hissedilirse iki bölüm geçişinde onar saniye durabiliriz.  Başlamadan önce bir uyarı: bu bir tedavi kılavuzu değil, kanıt sentezidir. Merkezinizdeki antibiyotik ve GVHD protokollerini değiştirmeden önce lokal mikrobiyoloji ve enfeksiyon kontrolüyle konuşun.',
+    ),
+    (
+        'content',
+        'Öğrenme hedefleri',
+        [
+            'Allo-HSCT’de tipik mikrobiyota disbiyozunu tanımlamak',
+            'Çeşitlilik, Blautia/SCFA ve Enterococcus’un prognostik anlamını açıklamak',
+            'Anaerob spektrumlu antibiyotiklerin GVHD riskine etkisini tartışmak',
+            'Prebiyotik ve FMT kanıtlarını endikasyona göre ayırt etmek',
+            'Kliniğe taşınabilir 4–5 pratik mesaj çıkarmak',
+        ],
+        'Beş öğrenme hedefimiz var; bunları zihinsel kontrol listesi gibi kullanın. Birincisi, allo-HSCT’deki tipik disbiyozu bir cümlede tanımlayabilmek: çeşitlilik kaybı, anaerob kommensal azalması ve tek takson dominasyonu. İkincisi, Blautia ve kısa zincirli yağ asitlerinin koruyucu, Enterococcus’un zararlı rolünü açıklamak. Üçüncüsü, piperasilin-tazobaktam ve karbapenemlerin neden GVHD mortalitesiyle ilişkilendirildiğini tartışmak. Dördüncüsü, prebiyotik ile FMT kanıtını endikasyona göre ayırmak — özellikle steroid dirençli gastrointestinal GVHD versus profilaktik enfeksiyon azaltımı. Beşincisi, yarın vizitte kullanabileceğiniz dört beş somut mesaj çıkarmak. Bu beş maddeyi karşılarsak sunum amacına ulaşmış demektir. Hedefleri karşılamak için dinlerken şu soruları not edin: Merkezimde anaerob spektrumlu antibiyotik ilk seçenek mi? Pretransplant dışkı bankalıyor muyuz? Steroid dirençli GI-GVHD’de FMT erişimimiz var mı?',
+    ),
+    (
+        'section',
+        'I · Neden mikrobiyota?',
+        'Birinci bölüme geçiyoruz: neden mikrobiyota? Burada tarihsel çerçeveyi ve klinik motivasyonu kısaca kuracağız. Amaç, dinleyicide şu soruyu canlı tutmak: bağırsak florası transplantasyoncunun ajandasında neden var? Cevap hem tarihsel hem güncel — enfeksiyon, GVHD ve sağkalımın ortak paydası olduğu için. Bu bölüm yaklaşık üç dakika sürecek; ardından mekanizmalara geçeceğiz.',
+    ),
+    (
+        'content',
+        'Kısa tarihçe ve klinik motivasyon',
+        [
+            '1970’ler: germ-free / dekontamine farelerde GVHD azalması [8,9]',
+            '2012–2016: dominasyon–bakteriyemi; Blautia; butirat; antibiyotik–GVHD [2–5]',
+            '2019–2020: laktoz–Enterococcus; çok merkezli çeşitlilik–mortalite [1,6]',
+            '2023–2025: meta-analiz, MHC-II mekanizması, standart FMT ürünleri [11–14]',
+            'Klinik soru: kimde risk yüksek, ne değiştirilebilir?',
+        ],
+        'Mikrobiyota–transplantasyon hikâyesi yaklaşık elli yıllık. Yetmişlerde germ-free ve bağırsak dekontaminasyonu modelleri, sekonder hastalığın — yani GVHD’nin — florayla ilişkili olduğunu gösterdi. O zamanki yorum basitti: bakteri antijenleri bağışıklığı ateşler. Güncel yorum daha nüanslı: bazı kommensaller korur, bazıları zarar verir. Asıl klinik sıçrama iki bin onlarda 16S dizilemeyle geldi. Taur iki bin on iki’de intestinal dominasyonu bakteriyemiye bağladı. Jenq Blautia’yı, Mathewson butiratı, Shono antibiyotik sınıf etkisini ortaya koydu. Stein-Thoeringer laktoz–Enterococcus eksenini, Peled ise dört merkezde çeşitlilik–mortalite ilişkisini kanıtladı. Son üç yılda meta-analizler, epitel MHC-II mekanizması ve MaaT013 gibi standart ürünler çeviriyi hızlandırdı. Bizim klinik sorumuz net: risk kimde yüksek ve hangisini değiştirebiliriz? Tarihçeyi ezberlemeniz gerekmiyor; dönüm noktalarını bilin yeter: germ-free dönem, 16S klinik kohortlar, NEJM çeşitlilik çalışması, son üç yılın ürün ve meta-analizleri. Bu kronoloji, neden ‘moda’ değil ‘olgunlaşan alan’ dediğimizi açıklar.  Landmark isimleri aklınızda kalsın: Taur, Jenq, Mathewson, Shono, Stein-Thoeringer, Peled. Son dönem için Wang meta-analizi, Koyama Immunity, Malard HERACLES ve Rashidi JCO çalışması. Derlemede hepsi numaralı.',
+    ),
+    (
+        'content',
+        'Allo-HSCT’de tipik disbiyoz',
+        [
+            'Alfa çeşitlilikte keskin düşüş (Shannon / Simpson)',
+            'Anaerob kommensal kaybı: Clostridia, Blautia, SCFA üreticileri',
+            'Dominasyon: Enterococcus, Streptococcus, proteobakteriler [1,2]',
+            'Tetikleyiciler: koşullandırma, mukozit, TPN, geniş spektrum AB',
+            'Önemli: bozulma sıklıkla pretransplant başlar [1,27]',
+        ],
+        'Tipik disbiyoz paternini ezberleyin; çünkü sonraki tüm slaytlar buna oturur. Alfa çeşitlilik — yani hem takson sayısı hem dengesi — keskin düşer. Zorunlu anaeroblar, özellikle Clostridia ve Blautia gibi kısa zincirli yağ asidi üreticileri kaybolur. Sahneyi Enterococcus, Streptococcus veya proteobakteriler kaplar; buna dominasyon diyoruz. Tetikleyiciler çoklu: koşullandırma mukozayı yakar, oral alım kesilir, TPN uzar, geniş spektrumlu antibiyotikler anaerobları biçer. Kritik nokta Peled ve Burgos da Silva verilerinden geliyor: bozulma çoğu hastada transplanttan önce başlamıştır. Yani risk penceresi yalnızca nötropeni günleri değil; yoğun tedavi ve antibiyotik öyküsünün tamamıdır. Pretransplant düşük çeşitlilik kötü prognozla gider. Disbiyozu tanımlarken hastaya özel tetikleyicileri de sayın: hangi antibiyotikler, kaç gün TPN, mukozit şiddeti, oral alımın kesilme süresi. Aynı teşhiste iki hastanın flora kaderi bu değişkenlerle ayrışır.  Dominasyon eşiği literatürde sıklıkla yüzde otuz göreli bolluk civarındadır; Enterococcus dominasyonu VRE bakteriyemisini yaklaşık dokuz kat artırır. Bu rakam Taur iki bin on iki’den gelir ve hâlâ öğretimde kullanılır.',
+    ),
+    (
+        'section',
+        'II · Mekanizmalar ve klinik sonlanımlar',
+        'İkinci bölüm: mekanizmalar ve klinik sonlanımlar. Önce koruyucu ve zararlı eksenleri yan yana koyacağız, sonra butirat, laktoz ve MHC-II mekanizmalarını, ardından sağkalım meta-analizini ve antibiyotik seçimini işleyeceğiz. Bu bölüm sunumun bilimsel omurgası. Mekanizma bölümü yaklaşık yedi sekiz dakika; en yoğun kısım burası.',
+    ),
+    (
+        'two_col',
+        'Koruyucu vs zararlı eksenler',
+        [
+            'Koruyucu',
+            '• Yüksek alfa çeşitlilik [1,11]',
+            '• Blautia / Clostridiales [3,11]',
+            '• Butirat ve diğer SCFA’lar [4,17,33]',
+            '• Epitel bariyer + Treg desteği',
+        ],
+        [
+            'Zararlı',
+            '• Enterococcus dominasyonu [2,6]',
+            '• γ-Proteobacteria, Candida [11]',
+            '• Anaerob etkili antibiyotikler [5,16]',
+            '• Laktoz + Enterococcus ekspansiyonu [6]',
+        ],
+        'Bu iki sütunu aklınızda tutun; tüm müdahale tartışması buradan türer. Sol tarafta koruyucu eksen var: yüksek alfa çeşitlilik Peled ve meta-analizde sağkalım ve düşük GVHD ile ilişkili. Blautia ve Clostridiales özellikle öne çıkıyor. Butirat ve diğer kısa zincirli yağ asitleri epitel bariyerini ve düzenleyici T hücre ortamını destekliyor. Sağ tarafta zararlı eksen: Enterococcus dominasyonu hem bakteriyemi hem GVHD ile gidiyor. Gamma proteobakteriler ve Candida meta-analizde kötü genel sağkalımla ilişkili. Anaerob etkili antibiyotikler koruyucu florayı yok ediyor. Laktoz ise Enterococcus için yakıt. Bundan sonra her müdahaleyi sorun: koruyucu ekseni mi güçlendiriyor, zararlı ekseni mi zayıflatıyor? Klinik karar verirken bu tabloyu kontrol listesi gibi kullanın. Örneğin piperasilin-tazobaktam seçerken sağ sütunu, erken oral alımı savurken sol sütunu güçlendirdiğinizi bilin.',
+    ),
+    (
+        'content',
+        'Mekanizma vurguları (2016–2023)',
+        [
+            'Butirat ↓ → histone asetilasyon ↓, sıkı bağlantı bozulması, GVHD ↑ [4]',
+            'Laktoz → Enterococcus büyümesi → GVHD şiddeti ↑ (fare + insan ipuçları) [6]',
+            'Mikrobiyota → ileum epitel MHC-II → CD4+ GVHD (genetik uyumdan bağımsız) [12]',
+            'Pretransplant Clostridia ↓ GVHD; Enterococcus ↑ TRM [12]',
+            'Mesaj: GVHD yalnız HLA meselesi değil — mikrobiyal eşik var',
+        ],
+        'Üç mekanizma vurgusu yapacağım; her biri yaklaşık bir dakikalık. Birincisi butirat. Mathewson, allojenik kemik iliği sonrası bağırsak epitelinde butiratın azaldığını gösterdi. Butirat histone asetilasyonunu destekler; azalınca sıkı bağlantılar bozulur, apoptoz artar, GVHD ağırlaşır. Eksojen butirat veya butirat üreten Clostridia konsorsiyumu farede hastalığı hafifletir. İkincisi laktoz–Enterococcus. Stein-Thoeringer, Enterococcus büyümesinin laktoza bağımlı olduğunu, laktozsuz diyetin farede hem dominasyonu hem GVHD’yi azalttığını gösterdi. Laktoz emmeyen genotip taşıyan hastalarda antibiyotik sonrası Enterococcus temizliği zorlaşır. Üçüncüsü 2023 Immunity çalışması: genetik özdeş ama farklı vendor farelerde mikrobiyota, ileum epitel MHC-II ekspresyonunu ve CD4 GVHD şiddetini belirliyor. İnsan pretransplant dışkısında Clostridia düşük GVHD, Enterococcus yüksek TRM ile ilişkili. Özet cümle: GVHD yalnızca HLA uyumsuzluğu değildir; mikrobiyal bir eşik vardır. Bu üç mekanizma birbirini dışlamaz; üst üste biner. Antibiyotik anaerobları yok eder, butirat düşer, Enterococcus laktozla şişer, epitel MHC-II ortamı değişir — sonuçta CD4 GVHD ve bariyer yetmezliği kolaylaşır.  Klinik çeviri açısından MHC-II bulgusu şunu söyler: transplant öncesi flora kompozisyonu, donör-alıcı genetik uyumundan bağımsız bir risk katmanı ekleyebilir. Pretransplant dışkı analizi gelecekte risk skorlarına girebilir.',
+    ),
+    (
+        'content',
+        'Sağkalım ve GVHD: nicel kanıt',
+        [
+            'Peled NEJM 2020: yüksek çeşitlilik → düşük ölüm (HR ~0,49–0,71) [1]',
+            'Düşük çeşitlilik → TRM ve GVHD’ye bağlı ölüm ↑ [1]',
+            'Meta-analiz 2023 (17 çalışma): OS HR 0,66; TRM 0,56; aGVHD II–IV 0,41 [11]',
+            'Clostridiales koruyucu; Enterococcus / γ-proteobacteria / Candida zararlı [11]',
+            'Nötrofil recovery dışkısı ağır aGVHD’yi öngörebilir [32]',
+        ],
+        'Nicel kanıt artık meta-analiz düzeyinde; bu slaytı yavaşça geçelim. Peled’in NEJM çalışması bin üç yüz altmış iki hasta ve sekiz binden fazla dışkı örneğiyle alanın dönüm noktasıdır. Engraftman döneminde yüksek çeşitlilik, bağımsız kohortlarda düzeltilmiş hazard oranları yaklaşık sıfır nokta kırk dokuz ile sıfır nokta yetmiş bir arasında ölüm riskini düşürür. Düşük çeşitlilik transplantasyona bağlı ve GVHD’ye bağlı ölümü artırır. İki bin yirmi üç meta-analizi on yedi çalışmayı birleştirir: yüksek çeşitlilik için genel sağkalım hazard oranı sıfır nokta altmış altı, TRM sıfır nokta elli altı, grade iki dört aGVHD sıfır nokta kırk bir. Clostridiales koruyucu; Enterococcus, gamma proteobakteri ve Candida zararlı. Golob verisi nötrofil iyileşmesi dışkısının ağır aGVHD’yi öngörebileceğini ekler. Yani mikrobiyota potansiyel bir risk biyobelirtecidir — henüz evrensel yatak başı test olmasa da. Meta-analiz hazard oranlarını ezberlemeye gerek yok; yönü bilin: yüksek çeşitlilik iyi, Enterococcus kötü. Sunum sonrası derlemede tam sayıları kaynakça ile bulacaksınız.  Peled çalışmasının gücü çok merkezliliktir: New York, Almanya, Japonya, Kuzey Carolina. Disbiyoz coğrafyadan bağımsız benzer görünür. Bu, bulgunun ‘tek merkez artefaktı’ olmadığını gösterir.',
+    ),
+    (
+        'content',
+        'Antibiyotik seçimi = mikrobiyota kararı',
+        [
+            'Piperasilin-tazobaktam & imipenem → GVHD mortalitesi ↑ [5]',
+            'Aztreonam / sefepim: aynı ilişki yok [5]',
+            'Anaerob spektrum: çeşitlilik ↓, butirat genleri ↓, GI/karaciğer GVHD ↑ [16]',
+            'Kısıtlayıcı strateji (ATG ateşi): AB süresi ↓, çeşitlilik korunur, enfeksiyon ↑ yok [19]',
+            'Pratik: anaerob/MDR şüphesi yoksa anaerob etkiliyi saklayın',
+        ],
+        'Bu belki en aksiyonabl slayt; bir buçuk dakika ayıralım. Nötropenik ateş tedavisi vazgeçilmezdir — bunu kimse tartışmıyor. Tartışılan, hangi ajanla başladığımız. Shono ve arkadaşları, imipenem-silastatin ve piperasilin-tazobaktamın artmış GVHD mortalitesiyle ilişkili olduğunu; aztreonam ve sefepimde aynı ilişkinin olmadığını insan ve fare verisiyle gösterdi. Tanaka çalışması anaerob spektrumun çeşitliliği, Bifidobacteriales–Clostridiales’i ve butirat biyosentez genlerini azalttığını; akut bağırsak ve karaciğer GVHD ile GVHD mortalitesini artırdığını ekledi. Weber’in Regensburg kohortunda ATG ilişkili erken ateşte kısıtlayıcı strateji, enfeksiyonu artırmadan antibiyotik süresini kısaltıp çeşitliliği korudu. Pratik cümle: anaerob veya çoklu dirençli enfeksiyon şüphesi yoksa en geniş anaerob spektrumu otomatik seçmeyin; de-eskalasyonu hızlandırın. Bu, bugünden uygulanabilir stewardship mesajıdır. Stewardship tartışmalarında enfeksiyon güvenlik sinyali sık sorulur. Weber verisi kısıtlayıcı stratejinin enfeksiyonu artırmadığını gösterdi; yine de hemodinamik instabilite ve MDR riskinde geniş spektrum geciktirilmemeli. Nüans: seçici olmak, gecikmek demek değildir.  Pediatrik kalite iyileştirme çalışmalarında bireyselleştirilmiş antibiyotik planları karbapenem kullanımını azaltabilmiştir; kan dolaşımı enfeksiyonu artışı bildirilmemiştir. Stewardship ‘daha az ilaç’ değil, ‘daha doğru ilaç’ demektir.',
+    ),
+    (
+        'section',
+        'III · Ne yapabiliriz?',
+        'Üçüncü ve son içerik bölümü: ne yapabiliriz? Diyet ve prebiyotikler, FMT’nin endikasyona göre okunması ve kliniğe götürülecek beş mesaj. Burada iyimserlik ile temkini dengede tutmaya çalışacağım. Müdahale bölümü yaklaşık altı dakika; iyimser ama abartısız kalacağız.',
+    ),
+    (
+        'content',
+        'Diyet ve prebiyotikler',
+        [
+            'Dirençli nişasta + GFO: mukozit ↓, aGVHD ↓, çeşitlilik korunumu [18]',
+            'Lif/prebiyotik SR 2025: potansiyel yarar, rutin için daha fazla RCT [23]',
+            'Erken oral alım; TPN süresini kısaltmak Blautia için kritik [3]',
+            'Laktoz kısıtı: mekanistik temelli, klinik standart değil [6]',
+            'Probiyotik canlı ürünler: bakteriyemi riski → temkin [10,21]',
+        ],
+        'Beslenme çoğu zaman en ucuz kaldıraçtır. Yoshifuji ve arkadaşları dirençli nişasta ile GFO karışımını koşullandırmadan artı yirmi sekizinci güne kadar verdiler; mukozal hasar azaldı, tüm grade ve grade iki–dört aGVHD düştü, çeşitlilik ve butirat üreticileri daha iyi korundu. İki bin yirmi beş sistematik derlemesi potansiyel yararı kabul eder ama rutine almak için daha fazla randomize veri ister. Jenq’in Blautia çalışması uzamış TPN’nin flora kaybıyla gittiğini gösterdiği için erken oral alımı savunun. Laktoz kısıtı farede güçlü, insanda henüz standart protokol değil; seçilmiş hastalarda araştırma konusu. Canlı probiyotikleri derin immünosupresyonda hafife almayın — bakteriyemi riski gerçektir; kanıt da FMT ve prebiyotiklere göre daha zayıftır. Prebiyotik çalışmalarda tarihsel kontrol sınırlılığı vardır; bu yüzden ‘umut verici’ deyip ‘kanıtlandı’ demiyoruz. Yine de maliyet-risk profili farmakolojik ajanlara göre elverişlidir ve merkez protokolüne eklemesi görece kolaydır.  Beslenme ekibiyle ortak dil kurun: mukozit skoru, oral kalori hedefi, TPN kesilme planı ve mümkünse prebiyotik protokolü aynı vizit notunda yer alsın. Mikrobiyota ‘laboratuvar konusu’ olmaktan çıkar, destek tedavi konusu olur.',
+    ),
+    (
+        'content',
+        'FMT: ne işe yarıyor, ne yaramıyor?',
+        [
+            'Oto-FMT: çeşitlilik ve pre-AB kompozisyon restore [7]',
+            'Steroid-R GI-aGVHD: MaaT013 D28 yanıt %38 (EAP %58) [13]',
+            'Kapsül FMT 2024: D28 ORR %52; kalıcı yanıt sınırlı [22]',
+            'cGVHD pilot 2025: 6/12 yanıt; SCFA & Treg ↑ [24]',
+            'RCT 2023: FMT enfeksiyon yoğunluğunu azaltmadı (ama güvenli) [14]',
+            'Anahtar: endikasyon ve ürün standardizasyonu belirleyici',
+        ],
+        'FMT’yi tek sepet gibi düşünmeyin; endikasyonlara ayıralım. Oto-FMT: Taur’un randomize çalışması, bankalanmış otolog dışkının engraftman sonrası çeşitliliği ve preantibiotik kompozisyonu yeniden kurduğunu gösterdi — ekosistem restorasyonu kanıtı güçlü. Steroid dirençli gastrointestinal akut GVHD’de HERACLES faz iki a, havuzlanmış ürün MaaT013 ile gün yirmi sekiz yanıtını yüzde otuz sekiz, genişletilmiş erişimde yüzde elli sekiz bildirdi; yanıtlayanlarda zenginlik ve butirat üreticileri artıyordu. İki bin yirmi dört kapsül FMT pilotunda genel yanıt yüzde elli iki nokta dört ama kalıcı yanıt sınırlı. Kronik GVHD iki bin yirmi beş pilotunda on iki hastanın altısında yanıt, SCFA ve Treg artışı var. Rashidi’nin çift kör faz iki çalışması kritik uyarıdır: oral kapsül FMT disbiyozu iyileştirir, güvenlidir, ama dört aylık enfeksiyon yoğunluğunu anlamlı azaltmaz. Yani mikrobiyota düzelmesi her zaman klinik sonlanım yararına çevrilmez. Anahtar: doğru endikasyon, standart ürün, sıkı donör tarama ve farmakovijilans. FMT konuşurken güvenlik dilini eksik bırakmayın: donör tarama, ürün lot izlenebilirliği, bakteriyemi farmakovijilansı. HERACLES immünosuprese kohortta dikkatli raporlama örneğidir. ‘Komşunun dışkısı’ dönemi bitmiştir; standart ürün dönemi başlamıştır.  Endikasyon ayrımı şu cümleyle özetlenebilir: FMT ekosistemi restore edebilir; klinik yararı ise hangi sonlanımı hedeflediğinize bağlıdır. GVHD yanıtı ile enfeksiyon yoğunluğu aynı şey değildir.',
+    ),
+    (
+        'content',
+        'Kliniğe 5 mesaj',
+        [
+            '1. Çeşitlilik ve dominasyon = prognostik sinyal (bankalama düşünün)',
+            '2. Antibiyotik sınıfı seçimi GVHD riskini değiştirir → stewardship',
+            '3. Erken oral / prebiyotik-lif: düşük riskli destekleyici adımlar',
+            '4. FMT: öncelik steroid-R GI-GVHD araştırma/standart ürün çerçevesi',
+            '5. Profilaktik FMT ≠ kanıtlanmış enfeksiyon azaltımı (şimdilik)',
+        ],
+        'Beş mesaj — bunları slayt fotoğrafı gibi çekin. Bir: çeşitlilik ve dominasyonu prognostik sinyal kabul edin; mümkünse longitudinal dışkı bankacılığını araştırma için düşünün. İki: antibiyotik sınıfı seçimi GVHD riskini değiştirir; stewardship bugünün en olgun müdahalesidir. Üç: erken oral alım ve merkez protokolüne uygun prebiyotik-lif, görece düşük riskli desteklerdir. Dört: FMT’yi öncelikle steroid dirençli gastrointestinal GVHD’de, klinik araştırma veya onaylı standart ürün çerçevesinde düşünün. Beş: profilaktik FMT’nin enfeksiyonu azalttığını varsaymayın — mevcut randomize veri bunu göstermedi. Bu beş cümle yarın vizitte, antibiyotik seçiminde ve konsültasyonda kullanılabilir. Bu beş mesajı servis panosuna asılabilir cümleler gibi düşünün. Özellikle iki ve beş numaralar en sık yanlış anlamaya açıktır: stewardship ihmal edilmemeli, profilaktik FMT abartılmamalı.  Beş mesajı öncelik sırasına da dizin: önce stewardship ve beslenme, sonra bankalama ve araştırma FMT, en son spekülatif probiyotikler. Bu sıralama risk-kanıt dengesine uygundur.',
+    ),
+    (
+        'content',
+        'Özet ve açık sorular',
+        [
+            'Mikrobiyota allo-HSCT’de ‘üçüncü oyuncu’: enfeksiyon–GVHD–OS',
+            'Kanıt hiyerarşisi: çeşitlilik/AB sınıfı olgun; FMT seçilmiş endikasyon',
+            'Açık sorular: kim, ne zaman, hangi ürün? Relaps dengesi?',
+            'İhtiyaç: çok merkezli RCT, standart ürün, metabolit + takson skorları',
+            'Teşekkürler — sorularınızı alabilirim',
+        ],
+        'Kapanışa gelelim. Bağırsak mikrobiyotası allo-HSCT’nin üçüncü oyuncusudur: enfeksiyon, GVHD ve genel sağkalımın ortak paydası. Kanıt hiyerarşisinde çeşitlilik–mortalite ilişkisi ve antibiyotik sınıf etkisi olgundur; FMT seçilmiş endikasyonlarda ilerliyor, özellikle steroid dirençli gastrointestinal GVHD’de. Hâlâ açık sorular var: kimde, ne zaman, hangi ürünle müdahale edeceğiz; graft-versus-tümör dengesini bozmadan mikrobiyotayı nasıl şekillendireceğiz; relaps riski nasıl etkilenecek? İhtiyaç duyduğumuz şey çok merkezli randomize çalışmalar, standart ürünler ve çeşitlilik artı takson artı metaboliti birleştiren risk skorları. Dinlediğiniz için teşekkür ederim. Sorularınızı ve eleştirilerinizi memnuniyetle alırım — özellikle kendi merkezinizdeki antibiyotik ve beslenme pratikleri hakkında. Sorular için beş dakika ayırdık. Beklenen sorular: otolog mu allojenik FMT, pediatrik farklar, relaps riski, hangi antibiyotiği ilk seçelim. Derleme metninde bu başlıkların kaynakları numaralıdır. Tekrar teşekkürler.  Ek okuma için derleme Word dosyasındaki kaynaklar bir ile otuz sekiz arasındadır; landmark’lar başta, 2023–2025 çalışmaları ortada ve sonda toplanmıştır. İyi çalışmalar.',
+    ),
+]
