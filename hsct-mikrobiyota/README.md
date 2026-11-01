@@ -9,7 +9,10 @@ Türkçe derleme + ~20 dakikalık PowerPoint öğretim paketi.
 | `HSCT_Mikrobiyota_Derleme.docx` | ~8–10 sayfalık numaralı kaynakçalı derleme (38 kaynak) |
 | `HSCT_Mikrobiyota_Sunum.pptx` | 15 slaytlık metin sunusu, konuşma notlu |
 | `HSCT_Mikrobiyota_Gorsel_20dk.pptx` | 17 slayt, görsel 20 dk sunu. Her slaytın sağ altında kısa kaynak, notlarda söylenecek metin + derinlik |
-| `build_visual_deck.py` | Görsel sunuyu yeniden üretir |
+| `HSCT_Mikrobiyota_Derleme_Sunum.pptx` | Yüklenen derlemenin 23 slaytlık görsel anlatımı. Sağ altta bölüm, notlarda o bölümün konuşma metni |
+| `HSCT_mikrobiyota_kaynak.docx` | Bu görsel derleme sunusunun kaynak metni |
+| `build_visual_deck.py` | 20 dakikalık görsel sunuyu yeniden üretir |
+| `build_derleme_sunum.py` | Derleme sunusunu yeniden üretir |
 | `assets/` | Eğitici illüstrasyonlar (hasta fotoğrafı değildir) |
 | `build_materials.py` | Word + metin sunusu üretici |
 | `slides_data.py` | Metin sunusunun slaytları ve konuşma notları |
