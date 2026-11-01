@@ -30,6 +30,14 @@ Türkçe derleme + ~20 dakikalık PowerPoint öğretim paketi.
 python3 build_visual_deck.py
 ```
 
+## Derleme sunusu
+
+`HSCT_Mikrobiyota_Derleme_Sunum.pptx`, `HSCT_mikrobiyota_kaynak.docx` dosyasının bölüm sırasını izler. 23 slayt vardır. Sağ altta bölüm etiketi, sunucu notunda o bölümün anlatımı bulunur. Görseller eğitici illüstrasyondur.
+
+```bash
+python3 build_derleme_sunum.py
+```
+
 ## Metin sunusu
 
 1. `HSCT_Mikrobiyota_Sunum.pptx` dosyasını Sunucu görünümü ile açın.
